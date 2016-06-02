@@ -21,7 +21,6 @@ RUN apt-get update
 #Install my-sql-5.6
 #RUN apt-get install -qq -y oracle-java8-installer mysql-server-5.6
 RUN apt-get install -qq -y git mysql-server-5.6
-ADD my.cnf /etc/mysql/
 
 #Install jdk1.8.x
 RUN wget \
