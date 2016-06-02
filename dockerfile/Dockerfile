@@ -35,7 +35,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
-#RUN mkdir /opt/tomcat8 
+RUN mkdir /opt/tomcat8 
 RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /opt/tomcat8
 
 ENV CATALINA_HOME /opt/tomcat8
