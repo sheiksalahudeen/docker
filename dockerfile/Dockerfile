@@ -21,6 +21,7 @@ RUN apt-get update
 #Install my-sql-5.6
 #RUN apt-get install -qq -y oracle-java8-installer mysql-server-5.6
 RUN apt-get install -qq -y git mysql-server-5.6
+ADD my.cnf /etc/mysql/
 
 #Install jdk1.8.x
 RUN wget \
@@ -53,13 +54,20 @@ RUN echo ${JAVA_HOME}
 #EXPOSE 8080
 #CMD ["/opt/tomcat8/bin/startup.sh"] && tail -1000f /opt/tomcat8/logs/catalina.out
 
-#Start MySQL
-EXPOSE 3306
-CMD service mysql start && tail -F /var/log/mysql/error.log
 
 #Add my.cnf
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
 #RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+
+RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
+    sleep 5 && \
+    mysql -uroot < /opt/git/mysql/1_SCHEMA_TABLES_CREATION.sql && \
+    mysql -uroot < /opt/git/mysql/2_COLLECTION_GROUP_T.sql && \
+    mysql -uroot < /opt/git/mysql/3_INSTITUTION_T.sql && \
+    mysql -uroot < /opt/git/mysql/4_ITEM_STATUS_T.sql && \
+    mysql -uroot < /opt/git/mysql/5_REQUEST_TYPE_T.sql
+
+
 
 
