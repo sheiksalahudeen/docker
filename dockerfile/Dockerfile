@@ -36,21 +36,17 @@ ENV PATH $JAVA_HOME/bin:$PATH
 RUN echo ${JAVA_HOME}
 
 #RUN mkdir /opt/tomcat8 
-#RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /opt/tomcat8
+RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /opt/tomcat8
 
-#ENV CATALINA_HOME /opt/tomcat8
-#ENV PATH $PATH:$CATALINA_HOME/bin
+ENV CATALINA_HOME /opt/tomcat8
+ENV PATH $PATH:$CATALINA_HOME/bin
 
-#RUN echo ${CATALINA_HOME}     
+RUN echo ${CATALINA_HOME}     
 
-#RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /opt/ --extract --gzip
+RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /opt/ --extract --gzip
 
-#Start Solr 6.0.1
-#CMD ["/opt/solr-6.0.1/bin/solr start"]
 
-#Start Tomcat8
-
-#EXPOSE 8080
+EXPOSE 8080
 #CMD ["/opt/tomcat8/bin/startup.sh"] && tail -1000f /opt/tomcat8/logs/catalina.out
 
 
@@ -58,6 +54,8 @@ RUN echo ${JAVA_HOME}
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
 RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+
+EXPOSE 3306
 
 RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
     sleep 5 && \
