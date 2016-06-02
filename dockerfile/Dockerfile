@@ -63,7 +63,7 @@ RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
     mysql -uroot < /opt/git/mysql/2_COLLECTION_GROUP_T.sql && \
     mysql -uroot < /opt/git/mysql/3_INSTITUTION_T.sql && \
     mysql -uroot < /opt/git/mysql/4_ITEM_STATUS_T.sql && \
-    mysql -uroot < /opt/git/mysql/5_REQUEST_TYPE_T.sql
+    mysql -uroot < /opt/git/mysql/5_REQUEST_TYPE_T.sql && \
     mysql -uroot < /opt/git/mysql/6_ALLOW_CONTAINER_LINKING.sql
 
 
