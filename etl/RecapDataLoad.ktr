@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>RecapDBDataLoad-V2</name>
+    <name>RecapLoad-recapDB</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -11,12 +11,12 @@
     <parameters>
         <parameter>
             <name>inputFilePath</name>
-            <default_value/>
+            <default_value></default_value>
             <description>Input File Path</description>
         </parameter>
-        <parameter>
+	<parameter>
             <name>loadReportsFilePath</name>
-            <default_value/>
+            <default_value></default_value>
             <description>Reports File Path</description>
         </parameter>
     </parameters>
@@ -79,32 +79,11 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;06&#x2f;01 15&#x3a;13&#x3a;35.310</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;02 19&#x3a;16&#x3a;03.404</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;02 14&#x3a;37&#x3a;58.926</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Note to use this transformation&#xa;&#xa;--&#x3e; Select xml file from step. Browse and Add - &#x27;Input Schema Xml&#x27;&#xa;--&#x3e; Create a new database connection in step - &#x27;Bib Table&#x27; &#xa;--&#x3e; Select the created connection in step - &#x27;Holdings Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Item Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Bib Holdings Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Bib Item Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Collection Group Table Lookup&#x27;</note>
-      <xloc>9</xloc>
-      <yloc>11</yloc>
-      <width>499</width>
-      <heigth>163</heigth>
-      <fontname>Ubuntu</fontname>
-      <fontsize>11</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>Recap</name>
@@ -243,7 +222,10 @@
   </connection>
   <order>
   <hop> <from>Add constants</from><to>Collection Group Table Lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>BIb Id Seq</from><to>Bib Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Holdings Id Seq</from><to>Bib Holdings Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Holdings Table</from><to>Bib Holdings Failed Excel Output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Item Id Seq</from><to>Bib Item Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Item Table</from><to>Bib Item Failed Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Table</from><to>Filter rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Table</from><to>Holdings Schema Xml</to><enabled>Y</enabled> </hop>
@@ -254,20 +236,22 @@
   <hop> <from>Filter rows on duplicate</from><to>BoundWith Excel Report</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows on duplicate</from><to>Item Failed Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows on error</from><to>BIb Failed Excel Output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows on error</from><to>BIb Id Seq</to><enabled>Y</enabled> </hop>
+  <hop> <from>Holdings Id Seq</from><to>Holdings Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Schema Xml</from><to>Modify dates and holdingsInstitutionId</to><enabled>Y</enabled> </hop>
+  <hop> <from>Holdings Table</from><to>Bib Holdings Id Seq</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Table</from><to>Holding Failed Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Table</from><to>Item Schema Xml</to><enabled>Y</enabled> </hop>
   <hop> <from>Input Schema Xml</from><to>Current Date</to><enabled>Y</enabled> </hop>
+  <hop> <from>Item Id Seq</from><to>Item Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Item Schema Xml</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Item Table</from><to>Bib Item Id Seq</to><enabled>Y</enabled> </hop>
   <hop> <from>Item Table</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   <hop> <from>Modified Java Script Value</from><to>Filter rows on duplicate</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify dates and holdingsInstitutionId</from><to>Holdings Id Seq</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify dates and throw barcode exception</from><to>Item Id Seq</to><enabled>Y</enabled> </hop>
   <hop> <from>Modify dates, institutionId and institutionBibId</from><to>Filter rows on error</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>BIb Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows on error</from><to>Bib Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modify dates and holdingsInstitutionId</from><to>Holdings Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Holdings Table</from><to>Bib Holdings Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modify dates and throw barcode exception</from><to>Item Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Item Table</from><to>Bib Item Table</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -296,8 +280,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>185</xloc>
-      <yloc>654</yloc>
+      <xloc>209</xloc>
+      <yloc>493</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -438,8 +422,37 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>814</xloc>
-      <yloc>178</yloc>
+      <xloc>838</xloc>
+      <yloc>17</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>BIb Id Seq</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>BibIdSeq</valuename>
+      <use_database>N</use_database>
+      <connection>Recap-mydb</connection>
+      <schema>mydb</schema>
+      <seqname>bibliographic_s</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name>BibIdSeq</counter_name>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>838</xloc>
+      <yloc>129</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -486,6 +499,11 @@
     </template>
     <fields>
       <field>
+        <name>BibHoldingsIdSeq</name>
+        <type>Integer</type>
+        <format/>
+      </field>
+      <field>
         <name>BibIdSeq</name>
         <type>Integer</type>
         <format/>
@@ -520,8 +538,37 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>969</xloc>
-      <yloc>474</yloc>
+      <xloc>1113</xloc>
+      <yloc>303</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Bib Holdings Id Seq</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>BibHoldingsIdSeq</valuename>
+      <use_database>N</use_database>
+      <connection>Recap-mydb</connection>
+      <schema>mydb</schema>
+      <seqname>bibliographic_s</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name>BibHoldingsIdSeq</counter_name>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>773</xloc>
+      <yloc>305</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -543,7 +590,7 @@
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
+    <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -552,9 +599,13 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>BibHoldingsIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
+        <field>
+          <column_name>BIBLIOGRAPHIC_HOLDINGS_ID</column_name>
+          <stream_name>BibHoldingsIdSeq</stream_name>
+        </field>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
           <stream_name>BibIdSeq</stream_name>
@@ -566,8 +617,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>748</xloc>
-      <yloc>473</yloc>
+      <xloc>918</xloc>
+      <yloc>305</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -614,6 +665,11 @@
     </template>
     <fields>
       <field>
+        <name>BibItemIdSeq</name>
+        <type>Integer</type>
+        <format/>
+      </field>
+      <field>
         <name>BibIdSeq</name>
         <type>Integer</type>
         <format/>
@@ -648,8 +704,37 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1142</xloc>
-      <yloc>712</yloc>
+      <xloc>1364</xloc>
+      <yloc>554</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Bib Item Id Seq</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>BibItemIdSeq</valuename>
+      <use_database>N</use_database>
+      <connection>Recap-mydb</connection>
+      <schema>mydb</schema>
+      <seqname>bibliographic_s</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name>BibItemIdSeq</counter_name>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1085</xloc>
+      <yloc>552</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -671,7 +756,7 @@
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
+    <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -680,9 +765,13 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>BibItemIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
+        <field>
+          <column_name>BIBLIOGRAPHIC_ITEM_ID</column_name>
+          <stream_name>BibItemIdSeq</stream_name>
+        </field>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
           <stream_name>BibIdSeq</stream_name>
@@ -694,8 +783,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>969</xloc>
-      <yloc>712</yloc>
+      <xloc>1204</xloc>
+      <yloc>553</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -717,7 +806,7 @@
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
+    <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -726,9 +815,13 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>BibIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
+        <field>
+          <column_name>BIBLIOGRAPHIC_ID</column_name>
+          <stream_name>BibIdSeq</stream_name>
+        </field>
         <field>
           <column_name>CONTENT</column_name>
           <stream_name>BibContent</stream_name>
@@ -752,8 +845,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>819</xloc>
-      <yloc>292</yloc>
+      <xloc>985</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -810,6 +903,11 @@
         <format/>
       </field>
       <field>
+        <name>ItemIdSeq</name>
+        <type>Integer</type>
+        <format/>
+      </field>
+      <field>
         <name>LocalItemId</name>
         <type>String</type>
         <format/>
@@ -854,8 +952,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1301</xloc>
-      <yloc>625</yloc>
+      <xloc>1409</xloc>
+      <yloc>476</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -896,8 +994,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>360</xloc>
-      <yloc>653</yloc>
+      <xloc>384</xloc>
+      <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -921,8 +1019,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>186</xloc>
-      <yloc>234</yloc>
+      <xloc>189</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1063,8 +1161,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1238</xloc>
-      <yloc>288</yloc>
+      <xloc>1262</xloc>
+      <yloc>127</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1092,8 +1190,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1082</xloc>
-      <yloc>291</yloc>
+      <xloc>1106</xloc>
+      <yloc>130</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1121,8 +1219,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1160</xloc>
-      <yloc>571</yloc>
+      <xloc>1267</xloc>
+      <yloc>415</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1139,7 +1237,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>BIb Failed Excel Output</send_true_to>
-<send_false_to>Bib Table</send_false_to>
+<send_false_to>BIb Id Seq</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -1150,8 +1248,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>656</xloc>
-      <yloc>235</yloc>
+      <xloc>680</xloc>
+      <yloc>74</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1197,6 +1295,11 @@
       <filename>template.xls</filename>
     </template>
     <fields>
+      <field>
+        <name>HoldingsIdSeq</name>
+        <type>Integer</type>
+        <format/>
+      </field>
       <field>
         <name>BibIdSeq</name>
         <type>Integer</type>
@@ -1257,8 +1360,37 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>748</xloc>
-      <yloc>361</yloc>
+      <xloc>772</xloc>
+      <yloc>200</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Holdings Id Seq</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>HoldingsIdSeq</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema>ole</schema>
+      <seqname>ole_ds_bib_s</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name>HoldingsIdSeq</counter_name>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>493</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1417,8 +1549,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>69</xloc>
-      <yloc>435</yloc>
+      <xloc>68</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1440,7 +1572,7 @@
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
+    <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -1449,9 +1581,13 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>HoldingsIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
+        <field>
+          <column_name>HOLDINGS_ID</column_name>
+          <stream_name>HoldingsIdSeq</stream_name>
+        </field>
         <field>
           <column_name>CONTENT</column_name>
           <stream_name>HoldingContent</stream_name>
@@ -1475,8 +1611,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>560</xloc>
-      <yloc>424</yloc>
+      <xloc>631</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1770,8 +1906,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>69</xloc>
-      <yloc>236</yloc>
+      <xloc>62</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1818,7 +1954,7 @@
     </template>
     <fields>
       <field>
-        <name>BibIdSeq</name>
+        <name>ItemIdSeq</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
       </field>
@@ -1829,6 +1965,11 @@
       </field>
       <field>
         <name>OWNING_INSTITUTION_HOLDING_ID</name>
+        <type>Integer</type>
+        <format>&#x23;&#x3b;-&#x23;</format>
+      </field>
+      <field>
+        <name>BibIdSeq</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
       </field>
@@ -1937,8 +2078,37 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>497</yloc>
+      <xloc>1411</xloc>
+      <yloc>355</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Item Id Seq</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>ItemIdSeq</valuename>
+      <use_database>N</use_database>
+      <connection/>
+      <schema>ole</schema>
+      <seqname>ole_ds_bib_s</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name>ItemIdSeq</counter_name>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>845</xloc>
+      <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2128,7 +2298,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>69</xloc>
-      <yloc>656</yloc>
+      <yloc>495</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2159,9 +2329,13 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>ItemIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
+        <field>
+          <column_name>ITEM_ID</column_name>
+          <stream_name>ItemIdSeq</stream_name>
+        </field>
         <field>
           <column_name>BAR_CODE</column_name>
           <stream_name>ItemBarcode</stream_name>
@@ -2225,8 +2399,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>840</xloc>
-      <yloc>653</yloc>
+      <xloc>937</xloc>
+      <yloc>491</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2261,8 +2435,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>973</xloc>
-      <yloc>574</yloc>
+      <xloc>1081</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2303,8 +2477,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>262</xloc>
-      <yloc>432</yloc>
+      <xloc>286</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2345,8 +2519,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>624</xloc>
-      <yloc>653</yloc>
+      <xloc>648</xloc>
+      <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2417,8 +2591,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>236</yloc>
+      <xloc>424</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2509,8 +2683,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>968</xloc>
-      <yloc>233</yloc>
+      <xloc>981</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
