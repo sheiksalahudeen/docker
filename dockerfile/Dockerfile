@@ -59,7 +59,7 @@ CMD service mysql start && tail -F /var/log/mysql/error.log
 
 #Add my.cnf
 RUN mkdir /opt/git
-git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
+RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
 #RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 
 
