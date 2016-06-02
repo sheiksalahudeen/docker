@@ -21,7 +21,6 @@ RUN apt-get update
 #Install my-sql-5.6
 #RUN apt-get install -qq -y oracle-java8-installer mysql-server-5.6
 RUN apt-get install -qq -y git mysql-server-5.6
-ADD my.cnf /etc/mysql/
 
 #Install jdk1.8.x
 RUN wget \
@@ -60,8 +59,7 @@ CMD service mysql start && tail -F /var/log/mysql/error.log
 
 #Add my.cnf
 RUN mkdir /opt/git
-RUN cd /opt/git
-git clone https://github.com/ResearchCollectionsAndPreservation/docker.git
-RUN cp /opt/git/docker/my.cnf /etc/mysql/
+git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
+#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 
 
