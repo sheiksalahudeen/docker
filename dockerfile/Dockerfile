@@ -35,16 +35,29 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
-RUN mkdir /opt/tomcat8 
+#Install Tomcat
+RUN mkdir /opt/tomcat8
 RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /opt/tomcat8
 
 ENV CATALINA_HOME /opt/tomcat8
 ENV PATH $PATH:$CATALINA_HOME/bin
 
-RUN echo ${CATALINA_HOME}     
+RUN echo ${CATALINA_HOME}
 
+#Install Solr
 RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /opt/ --extract --gzip
 
+#Install Maven 3.3.3
+RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz | tar -C /opt/ --extract --gzip
+ENV MAVEN_HOME /opt/apache-maven-3.3.3
+ENV PATH $MAVEN_HOME/bin:$PATH
+
+#Add SCSB-SOLR files
+RUN mkdir /opt/scsb-solr
+RUN git clone https://github.com/ResearchCollectionsAndPreservation/scsb-solr.git /opt/scsb-solr/
+RUN mvn -f /opt/scsb-solr clean install -DskipTests=true
+RUN jar cf Transformers.jar /opt/scsb-solr/target/classes/transformers/*.class
+RUN cp /Transformers.jar /opt/solr-6.0.1/server/lib
 
 EXPOSE 8080
 #CMD ["/opt/tomcat8/bin/startup.sh"] && tail -1000f /opt/tomcat8/logs/catalina.out
@@ -63,7 +76,5 @@ RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
     mysql -uroot < /opt/git/mysql/2_COLLECTION_GROUP_T.sql && \
     mysql -uroot < /opt/git/mysql/3_INSTITUTION_T.sql && \
     mysql -uroot < /opt/git/mysql/4_ITEM_STATUS_T.sql && \
-    mysql -uroot < /opt/git/mysql/5_REQUEST_TYPE_T.sql
-
-
-
+    mysql -uroot < /opt/git/mysql/5_REQUEST_TYPE_T.sql && \
+    mysql -uroot < /opt/git/mysql/6_ALLOW_CONTAINER_LINKING.sql
