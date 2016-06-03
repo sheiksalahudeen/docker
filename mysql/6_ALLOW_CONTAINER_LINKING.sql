@@ -1,3 +1,3 @@
 use mysql;
-GRANT ALL ON *.* to etl@'172.17.0.3' IDENTIFIED BY 'etl', recap@'172.17.0.1' IDENTIFIED BY 'recap' ; 
+GRANT ALL ON *.* to etl@'%' IDENTIFIED BY 'etl', recap@'%' IDENTIFIED BY 'recap'; 
 FLUSH PRIVILEGES;
