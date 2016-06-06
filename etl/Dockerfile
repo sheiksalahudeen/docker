@@ -28,3 +28,5 @@ RUN echo ${JAVA_HOME}
 RUN mkdir /opt/etl
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/etl
 
+#Copy mysql connector to pentaho
+RUN curl http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar -o /opt/pentaho/data-integration/lib/mysql-connector-java-5.1.35.jar
