@@ -58,6 +58,16 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/scsb-solr.gi
 RUN mvn -f /opt/scsb-solr clean install -DskipTests=true
 RUN jar cf Transformers.jar /opt/scsb-solr/target/classes/transformers/*.class
 RUN cp /Transformers.jar /opt/solr-6.0.1/server/lib
+RUN cp /root/.m2/repository/info/freelibrary/freelib-marc4j/2.6.3/freelib-marc4j-2.6.3.jar /opt/solr-6.0.1/server/lib
+RUN cp /root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar /opt/solr-6.0.1/server/lib
+RUN cp /root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar /opt/solr-6.0.1/server/lib
+RUN cp /root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar /opt/solr-6.0.1/server/lib
+RUN curl http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35-bin.jar -o /opt/solr-6.0.1/server/lib/mysql-connector-java-5.1.35-bin.jar
+
+RUN cd /opt/solr-6.0.1/bin && ./solr start && ./solr create -c recap
+RUN cp /opt/scsb-solr/src/main/resources/data-config.xml /opt/solr-6.0.1/server/solr/recap/conf
+RUN cp /opt/scsb-solr/src/main/resources/solrconfig.xml /opt/solr-6.0.1/server/solr/recap/conf
+RUN cp /opt/scsb-solr/src/main/resources/managed-schema /opt/solr-6.0.1/server/solr/recap/conf
 
 EXPOSE 8080
 #CMD ["/opt/tomcat8/bin/startup.sh"] && tail -1000f /opt/tomcat8/logs/catalina.out
