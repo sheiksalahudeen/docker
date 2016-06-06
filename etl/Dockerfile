@@ -25,3 +25,6 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
+RUN mkdir /opt/etl
+RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/etl
+
