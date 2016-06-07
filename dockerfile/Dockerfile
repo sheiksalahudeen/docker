@@ -56,7 +56,7 @@ ENV PATH $MAVEN_HOME/bin:$PATH
 RUN mkdir /opt/scsb-solr
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/scsb-solr.git /opt/scsb-solr/
 RUN mvn -f /opt/scsb-solr clean install -DskipTests=true
-RUN jar cf Transformers.jar /opt/scsb-solr/target/classes/transformers/*.class
+RUN jar cvf Transformers.jar -C /opt/scsb-solr/target/classes/transformers .
 RUN cp /Transformers.jar /opt/solr-6.0.1/server/lib
 RUN cp /root/.m2/repository/info/freelibrary/freelib-marc4j/2.6.3/freelib-marc4j-2.6.3.jar /opt/solr-6.0.1/server/lib
 RUN cp /root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar /opt/solr-6.0.1/server/lib
