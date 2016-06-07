@@ -109,7 +109,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;06&#x2f;06 12&#x3a;56&#x3a;42.558</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;06 13&#x3a;26&#x3a;04.567</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;07 17&#x3a;28&#x3a;23.382</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -167,19 +167,15 @@
   <hop> <from>Add constants</from><to>Modify dates and throw barcode exception</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Holdings Table</from><to>Bib Holdings Failed Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Item Table</from><to>Bib Item Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Table</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Table</from><to>Holdings Schema Xml</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Table</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Table</from><to>BIb Failed Excel Output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Table</from><to>Modify HoldingsTree if null</to><enabled>Y</enabled> </hop>
   <hop> <from>Current Date</from><to>Modify dates, institutionId and institutionBibId</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Exception Bibs Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows on duplicate</from><to>BoundWith Excel Report</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows on duplicate</from><to>Item Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows on error</from><to>BIb Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows on error</from><to>Bib Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Schema Xml</from><to>Modify dates and holdingsInstitutionId</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Table</from><to>Bib Holdings Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Table</from><to>Holding Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Holdings Table</from><to>Item Schema Xml</to><enabled>Y</enabled> </hop>
+  <hop> <from>Holdings Table</from><to>Modify Items if null</to><enabled>Y</enabled> </hop>
   <hop> <from>Input Schema Xml</from><to>Current Date</to><enabled>Y</enabled> </hop>
   <hop> <from>Item Schema Xml</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Item Table</from><to>Bib Item Table</to><enabled>Y</enabled> </hop>
@@ -187,8 +183,9 @@
   <hop> <from>Modified Java Script Value</from><to>Filter rows on duplicate</to><enabled>Y</enabled> </hop>
   <hop> <from>Modify dates and holdingsInstitutionId</from><to>Holdings Table</to><enabled>Y</enabled> </hop>
   <hop> <from>Modify dates and throw barcode exception</from><to>Item Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modify dates, institutionId and institutionBibId</from><to>Filter rows on error</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>BIb Failed Excel Output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify dates, institutionId and institutionBibId</from><to>Bib Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify HoldingsTree if null</from><to>Holdings Schema Xml</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify Items if null</from><to>Item Schema Xml</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -217,8 +214,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>225</xloc>
-      <yloc>627</yloc>
+      <xloc>228</xloc>
+      <yloc>585</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -300,57 +297,7 @@
         <format/>
       </field>
       <field>
-        <name>Title</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher260a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher260b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher261a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher261b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher262a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher262b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher264a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher264b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>exceptionMessage</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Err_Des</name>
+        <name>Err_desc</name>
         <type>String</type>
         <format/>
       </field>
@@ -374,8 +321,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>818</xloc>
-      <yloc>168</yloc>
+      <xloc>786</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -422,12 +369,12 @@
     </template>
     <fields>
       <field>
-        <name>BibIdSeq</name>
+        <name>BibId</name>
         <type>Integer</type>
         <format/>
       </field>
       <field>
-        <name>HoldingsIdSeq</name>
+        <name>HoldingsId</name>
         <type>Integer</type>
         <format/>
       </field>
@@ -456,8 +403,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>972</xloc>
-      <yloc>445</yloc>
+      <xloc>975</xloc>
+      <yloc>403</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -488,22 +435,22 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>BibHoldingsIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibIdSeq</stream_name>
+          <stream_name>BibId</stream_name>
         </field>
         <field>
           <column_name>HOLDINGS_ID</column_name>
-          <stream_name>HoldingsIdSeq</stream_name>
+          <stream_name>HoldingsId</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>751</xloc>
-      <yloc>444</yloc>
+      <xloc>754</xloc>
+      <yloc>402</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -550,12 +497,12 @@
     </template>
     <fields>
       <field>
-        <name>BibIdSeq</name>
+        <name>BibId</name>
         <type>Integer</type>
         <format/>
       </field>
       <field>
-        <name>ItemIdSeq</name>
+        <name>ItemId</name>
         <type>Integer</type>
         <format/>
       </field>
@@ -584,8 +531,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>963</xloc>
-      <yloc>684</yloc>
+      <xloc>966</xloc>
+      <yloc>642</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -616,22 +563,22 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>BibItemIdSeq</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibIdSeq</stream_name>
+          <stream_name>BibId</stream_name>
         </field>
         <field>
           <column_name>ITEM_ID</column_name>
-          <stream_name>ItemIdseq</stream_name>
+          <stream_name>ItemId</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>797</xloc>
-      <yloc>683</yloc>
+      <xloc>800</xloc>
+      <yloc>641</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -663,7 +610,7 @@
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>Y</return_keys>
-    <return_field>BibIdSeq</return_field>
+    <return_field>BibId</return_field>
     <fields>
         <field>
           <column_name>CONTENT</column_name>
@@ -688,8 +635,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>822</xloc>
-      <yloc>263</yloc>
+      <xloc>634</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -736,12 +683,12 @@
     </template>
     <fields>
       <field>
-        <name>BibIdSeq</name>
+        <name>BibId</name>
         <type>Integer</type>
         <format/>
       </field>
       <field>
-        <name>HoldingsIdSeq</name>
+        <name>HoldingsId</name>
         <type>Integer</type>
         <format/>
       </field>
@@ -765,11 +712,6 @@
         <type>String</type>
         <format/>
       </field>
-      <field>
-        <name>ItemXml</name>
-        <type>String</type>
-        <format/>
-      </field>
     </fields>
     <custom>
     <header_font_name>arial</header_font_name>
@@ -790,8 +732,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1174</xloc>
-      <yloc>593</yloc>
+      <xloc>1177</xloc>
+      <yloc>551</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -815,179 +757,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>189</xloc>
-      <yloc>205</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Exception Bibs Excel Output</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;BibExceptions</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
-      <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Bib Exceptions</sheetname>
-      <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-      </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>BibIdSeq</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>owningInstitutionId</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>BIB_INSTITUTION_ID</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>OWNING_INSTITUTION_BIB_ID</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Title</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher260a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher260b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher261a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher261b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher262a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher262b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher264a</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Publisher264b</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>exceptionMessage</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>BibRecordXml</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1241</xloc>
-      <yloc>259</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Exception Bibs Excel Output</send_true_to>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>hasPassError</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>true</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1085</xloc>
-      <yloc>262</yloc>
+      <xloc>196</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1015,37 +786,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>986</xloc>
-      <yloc>546</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Filter rows on error</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>BIb Failed Excel Output</send_true_to>
-<send_false_to>Bib Table</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>hasFailError</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>true</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>659</xloc>
-      <yloc>206</yloc>
+      <xloc>989</xloc>
+      <yloc>504</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1092,12 +834,32 @@
     </template>
     <fields>
       <field>
-        <name>BibIdSeq</name>
+        <name>BibId</name>
         <type>Integer</type>
         <format/>
       </field>
       <field>
+        <name>owningInstitutionHoldingsId</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>HoldingInstitutionIdFrom001</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
         <name>OWNING_INSTITUTION_HOLDING_ID</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>callNumber</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>callNumberType</name>
         <type>String</type>
         <format/>
       </field>
@@ -1112,22 +874,7 @@
         <format/>
       </field>
       <field>
-        <name>callNumber</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>callNumberType</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
         <name>Err_desc</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>HoldingXml</name>
         <type>String</type>
         <format/>
       </field>
@@ -1151,8 +898,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>751</xloc>
-      <yloc>332</yloc>
+      <xloc>754</xloc>
+      <yloc>290</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1265,21 +1012,6 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>HoldingXml</name>
-        <xpath>.</xpath>
-        <element_type>node</element_type>
-        <result_type>singlenode</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
         <name>Items</name>
         <xpath>items</xpath>
         <element_type>node</element_type>
@@ -1311,8 +1043,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>406</yloc>
+      <xloc>75</xloc>
+      <yloc>364</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1344,7 +1076,7 @@
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>Y</return_keys>
-    <return_field>HoldingsIdSeq</return_field>
+    <return_field>HoldingsId</return_field>
     <fields>
         <field>
           <column_name>CONTENT</column_name>
@@ -1360,7 +1092,7 @@
         </field>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibIdSeq</stream_name>
+          <stream_name>BibId</stream_name>
         </field>
         <field>
           <column_name>OWNING_INST_HOLDINGS_ID</column_name>
@@ -1369,8 +1101,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>563</xloc>
-      <yloc>395</yloc>
+      <xloc>566</xloc>
+      <yloc>353</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1468,173 +1200,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Title</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;245&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher260a</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;260&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;a&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher260b</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;260&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;b&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher261a</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;261&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;a&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher261b</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;261&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;b&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher262a</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;262&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;a&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher262b</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;262&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;b&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher264a</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;264&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;a&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Publisher264b</name>
-        <xpath>bib&#x2f;content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;datafield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;264&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;subfield&#x27;&#x5d;&#x5b;&#x40;code&#x3d;&#x27;b&#x27;&#x5d;</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>BibRecordXml</name>
-        <xpath>bib</xpath>
-        <element_type>node</element_type>
-        <result_type>singlenode</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
         <name>HoldingsTree</name>
         <xpath>holdings</xpath>
-        <element_type>node</element_type>
-        <result_type>singlenode</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ItemRecord</name>
-        <xpath>holdings&#x2f;holding&#x2f;items&#x2f;content&#x2f;collection&#x2f;record</xpath>
         <element_type>node</element_type>
         <result_type>singlenode</result_type>
         <type>String</type>
@@ -1664,8 +1231,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>207</yloc>
+      <xloc>74</xloc>
+      <yloc>197</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1712,12 +1279,12 @@
     </template>
     <fields>
       <field>
-        <name>BibIdSeq</name>
+        <name>BibId</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
       </field>
       <field>
-        <name>HoldingsIdSeq</name>
+        <name>HoldingsId</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
       </field>
@@ -1806,11 +1373,6 @@
         <type>String</type>
         <format/>
       </field>
-      <field>
-        <name>ItemXml</name>
-        <type>String</type>
-        <format/>
-      </field>
     </fields>
     <custom>
     <header_font_name>arial</header_font_name>
@@ -1831,8 +1393,8 @@
       </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1174</xloc>
-      <yloc>475</yloc>
+      <xloc>1177</xloc>
+      <yloc>433</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1989,21 +1551,6 @@
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
-      <field>
-        <name>ItemXml</name>
-        <xpath>.</xpath>
-        <element_type>node</element_type>
-        <result_type>singlenode</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
     </fields>
     <limit>0</limit>
     <loopxpath>&#x2f;items&#x2f;content&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;collection&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;record&#x27;&#x5d;</loopxpath>
@@ -2021,8 +1568,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>72</xloc>
-      <yloc>627</yloc>
+      <xloc>75</xloc>
+      <yloc>585</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2054,7 +1601,7 @@
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>Y</return_keys>
-    <return_field>ItemIdSeq</return_field>
+    <return_field>ItemId</return_field>
     <fields>
         <field>
           <column_name>BAR_CODE</column_name>
@@ -2066,7 +1613,7 @@
         </field>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibIdSeq</stream_name>
+          <stream_name>BibId</stream_name>
         </field>
         <field>
           <column_name>USE_RESTRICTIONS</column_name>
@@ -2082,7 +1629,7 @@
         </field>
         <field>
           <column_name>HOLDINGS_ID</column_name>
-          <stream_name>HoldingsIdSeq</stream_name>
+          <stream_name>HoldingsId</stream_name>
         </field>
         <field>
           <column_name>CREATED_DATE</column_name>
@@ -2119,8 +1666,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>660</xloc>
-      <yloc>621</yloc>
+      <xloc>663</xloc>
+      <yloc>579</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2155,8 +1702,76 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>799</xloc>
-      <yloc>548</yloc>
+      <xloc>802</xloc>
+      <yloc>506</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Modify HoldingsTree if null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>HoldingsTree</name>
+        <value>&#x3c;holdings&#x3e;&#x3c;&#x2f;holdings&#x3e;</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>346</xloc>
+      <yloc>277</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Modify Items if null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>Items</name>
+        <value>&#x3c;items&#x3e;&#x3c;&#x2f;items&#x3e;</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>301</xloc>
+      <yloc>473</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2197,8 +1812,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>298</xloc>
-      <yloc>404</yloc>
+      <xloc>301</xloc>
+      <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2245,8 +1860,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>444</xloc>
-      <yloc>621</yloc>
+      <xloc>447</xloc>
+      <yloc>579</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2266,7 +1881,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var createDateBib &#x3d; CURR_DATE&#x3b;&#xa;var lastUpdatedDateBib &#x3d; CURR_DATE&#x3b;&#xa;var exceptionMessage &#x3d; &#x22;&#x22;&#x3b;&#xd;&#xa;var hasFailError &#x3d; &#x22;false&#x22;&#x3b;&#xa;var hasPassError &#x3d; &#x22;false&#x22;&#x3b;&#xd;&#xa;var Err_Des &#x3d; &#x22;&#x22;&#x3b;&#xa;&#xa;var BIB_INSTITUTION_ID&#x3b;&#xa;var OWNING_INSTITUTION_BIB_ID&#x3b;&#xa;&#xa;if &#x28;owningInstitutionId &#x3d;&#x3d; &#x22;PUL&#x22;&#x29; &#x7b;&#xa;	BIB_INSTITUTION_ID &#x3d; &#x22;1&#x22;&#x3b;&#xa;&#x7d; else if &#x28;owningInstitutionId &#x3d;&#x3d; &#x22;CUL&#x22;&#x29; &#x7b;&#xa;	BIB_INSTITUTION_ID &#x3d; &#x22;2&#x22;&#x3b;&#xa;&#x7d; else if &#x28;owningInstitutionId &#x3d;&#x3d; &#x22;NYPL&#x22;&#x29; &#x7b;&#xa;	BIB_INSTITUTION_ID &#x3d; &#x22;3&#x22;&#x3b;&#xa;&#x7d;&#xa;&#xa;if &#x28;owningInstitutionBibId &#x21;&#x3d; null &#x26;&#x26; &#x21;isEmpty&#x28;owningInstitutionBibId&#x29;&#x29; &#x7b;&#xa;	OWNING_INSTITUTION_BIB_ID &#x3d; owningInstitutionBibId&#x3b;&#xa;&#x7d; else &#x7b;&#xa;	OWNING_INSTITUTION_BIB_ID &#x3d; BibInstitutionIdFrom001&#x3b;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;OWNING_INSTITUTION_BIB_ID &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;OWNING_INSTITUTION_BIB_ID&#x29;&#x29; &#x7b;&#xd;&#xa;	exceptionMessage &#x3d; &#x22; Input record does not contain &#x27;owningInstitutionBibId&#x27; tag or control field 001&#x22;&#x3b;&#xd;&#xa;	hasFailError &#x3d; &#x22;true&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;owningInstitutionId &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;owningInstitutionId&#x29;&#x29; &#x7b;&#xd;&#xa;	exceptionMessage &#x3d; &#x22; Input record does not contain &#x27;owningInstitutionId&#x27; tag or does not contain value in it&#x22;&#x3b;&#xd;&#xa;	hasFailError &#x3d; &#x22;true&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xa;if &#x28;Title &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Title&#x29;&#x29; &#x7b;&#xa;	exceptionMessage &#x3d; exceptionMessage &#x2b; &#x22; Input record does not contain Title 245 tag&#x22;&#x3b;&#xd;&#xa;	hasFailError &#x3d; &#x22;true&#x22;&#x3b;&#xa;&#x7d;&#xa;&#xa;if &#x28;ItemRecord &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;ItemRecord&#x29;&#x29; &#x7b;&#xa;	exceptionMessage &#x3d; exceptionMessage &#x2b; &#x22; Input record does not contain Item information&#x22;&#x3b;&#xa;	hasFailError &#x3d; &#x22;true&#x22;&#x3b;&#xa;&#x7d;&#xa;&#xa;if &#x28;&#x28;&#x28;Publisher260a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher260a&#x29;&#x29; &#x26;&#x26; &#x28;Publisher260b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher260b&#x29;&#x29;&#x29; &#x26;&#x26; &#xa;	&#x28;&#x28;Publisher261a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher261a&#x29;&#x29; &#x26;&#x26; &#x28;Publisher261b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher261b&#x29;&#x29;&#x29; &#x26;&#x26;&#xa;	&#x28;&#x28;Publisher262a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher262a&#x29;&#x29; &#x26;&#x26; &#x28;Publisher262b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher262b&#x29;&#x29;&#x29; &#x26;&#x26; &#xa;	&#x28;&#x28;Publisher264a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher264a&#x29;&#x29; &#x26;&#x26; &#x28;Publisher264b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher264b&#x29;&#x29;&#x29;&#x29; &#x7b;&#xa;	if &#x28;hasFailError &#x3d;&#x3d; &#x22;false&#x22;&#x29; &#x7b;&#xa;		exceptionMessage &#x3d; &#x22; Input record does not contain Publisher and Publication place values &#x28;260 &#x24;a&#x24;b or 261 &#x24;a&#x24;b or 262 &#x24;a&#x24;b or 264 &#x24;a&#x24;b&#x29;&#x22;&#x3b;&#xa;		hasPassError &#x3d; &#x22;true&#x22;&#x3b;&#xa;	&#x7d;	&#xa;&#x7d; else &#x7b;&#xa;	if &#x28;&#x28;Publisher260a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher260a&#x29;&#x29; &#x26;&#x26; &#xa;		&#x28;Publisher261a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher261a&#x29;&#x29; &#x26;&#x26;&#xa;		&#x28;Publisher262a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher262a&#x29;&#x29; &#x26;&#x26;&#xa;		&#x28;Publisher264a &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher264a&#x29;&#x29;&#x29; &#x7b;&#xa;			if &#x28;hasFailError &#x3d;&#x3d; &#x22;false&#x22;&#x29; &#x7b;&#xa;				exceptionMessage &#x3d; &#x22; Input record does not contain Publication place value &#x28;260 &#x24;a or 261 &#x24;a or 262 &#x24;a or 264 &#x24;a&#x29;&#x22;&#x3b;&#xa;				hasPassError &#x3d; &#x22;true&#x22;&#x3b;&#xa;			&#x7d;	&#xa;	&#x7d;&#xa;	if &#x28;&#x28;Publisher260b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher260b&#x29;&#x29; &#x26;&#x26; &#xa;		&#x28;Publisher261b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher261b&#x29;&#x29; &#x26;&#x26;&#xa;		&#x28;Publisher262b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher262b&#x29;&#x29; &#x26;&#x26;&#xa;		&#x28;Publisher264b &#x3d;&#x3d; null &#x7c;&#x7c; isEmpty&#x28;Publisher264b&#x29;&#x29;&#x29; &#x7b;&#xa;			if &#x28;hasFailError &#x3d;&#x3d; &#x22;false&#x22;&#x29; &#x7b;&#xa;				exceptionMessage &#x3d; &#x22; Input record does not contain Publisher value &#x28;260 &#x24;b or 261 &#x24;b or 262 &#x24;b or 264 &#x24;b&#x29;&#x22;&#x3b;&#xa;				hasPassError &#x3d; &#x22;true&#x22;&#x3b;&#xa;			&#x7d;&#xa;	&#x7d;&#xa;&#x7d;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var createDateBib &#x3d; CURR_DATE&#x3b;&#xa;var lastUpdatedDateBib &#x3d; CURR_DATE&#x3b;&#xa;&#xa;var BIB_INSTITUTION_ID&#x3b;&#xa;var OWNING_INSTITUTION_BIB_ID&#x3b;&#xa;&#xa;if &#x28;owningInstitutionId &#x3d;&#x3d; &#x22;PUL&#x22;&#x29; &#x7b;&#xa;	BIB_INSTITUTION_ID &#x3d; &#x22;1&#x22;&#x3b;&#xa;&#x7d; else if &#x28;owningInstitutionId &#x3d;&#x3d; &#x22;CUL&#x22;&#x29; &#x7b;&#xa;	BIB_INSTITUTION_ID &#x3d; &#x22;2&#x22;&#x3b;&#xa;&#x7d; else if &#x28;owningInstitutionId &#x3d;&#x3d; &#x22;NYPL&#x22;&#x29; &#x7b;&#xa;	BIB_INSTITUTION_ID &#x3d; &#x22;3&#x22;&#x3b;&#xa;&#x7d;&#xa;&#xa;if &#x28;owningInstitutionBibId &#x21;&#x3d; null &#x26;&#x26; &#x21;isEmpty&#x28;owningInstitutionBibId&#x29;&#x29; &#x7b;&#xa;	OWNING_INSTITUTION_BIB_ID &#x3d; owningInstitutionBibId&#x3b;&#xa;&#x7d; else &#x7b;&#xa;	OWNING_INSTITUTION_BIB_ID &#x3d; BibInstitutionIdFrom001&#x3b;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>createDateBib</name>
         <rename>createDateBib</rename>
         <type>Date</type>
@@ -2291,154 +1906,10 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>exceptionMessage</name>
-        <rename>exceptionMessage</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>hasFailError</name>
-        <rename>hasFailError</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>hasPassError</name>
-        <rename>hasPassError</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>Err_Des</name>
-        <rename>Err_Des</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>403</xloc>
-      <yloc>207</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>BibContent</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BibInstitutionIdFrom001</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>owningInstitutionId</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>owningInstitutionBibId</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Title</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher260a</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher260b</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher261a</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher261b</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher262a</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher262b</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher264a</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Publisher264b</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BibRecordXml</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>HoldingsTree</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ItemRecord</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CURR_DATE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>createDateBib</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>lastUpdatedDateBib</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BIB_INSTITUTION_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>OWNING_INSTITUTION_BIB_ID</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>exceptionMessage</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>hasFailError</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>hasPassError</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Err_desc</name>
-        <rename>Err_Des</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>971</xloc>
-      <yloc>204</yloc>
+      <xloc>410</xloc>
+      <yloc>190</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2470,7 +1941,7 @@
       </error>
       <error>
         <source_step>Bib Table</source_step>
-        <target_step>Select values</target_step>
+        <target_step>BIb Failed Excel Output</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename>Err_nr_field</nr_valuename>
         <descriptions_valuename>Err_desc</descriptions_valuename>
