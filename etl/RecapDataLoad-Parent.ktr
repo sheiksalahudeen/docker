@@ -119,7 +119,7 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;06&#x2f;06 13&#x3a;27&#x3a;39.845</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;07 17&#x3a;28&#x3a;56.164</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;08 14&#x3a;56&#x3a;16.157</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -157,6 +157,7 @@
   <hop> <from>Transformation Executor</from><to>Main Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Transformation Executor</from><to>Result rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Get File Names</from><to>Transformation Executor</to><enabled>Y</enabled> </hop>
+  <hop> <from>Execution Results</from><to>Write to log</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Execution Results</name>
@@ -171,8 +172,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>790</xloc>
-      <yloc>327</yloc>
+      <xloc>688</xloc>
+      <yloc>281</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -210,8 +211,8 @@
     </file>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>295</xloc>
-      <yloc>229</yloc>
+      <xloc>334</xloc>
+      <yloc>198</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -229,8 +230,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>781</xloc>
-      <yloc>102</yloc>
+      <xloc>685</xloc>
+      <yloc>104</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -248,8 +249,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>786</xloc>
-      <yloc>219</yloc>
+      <xloc>686</xloc>
+      <yloc>197</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -299,13 +300,54 @@
     <execution_log_text_field>ExecutionLogText</execution_log_text_field>
     <execution_log_channelid_field>ExecutionLogChannelId</execution_log_channelid_field>
     <result_rows_target_step>Result rows</result_rows_target_step>
-    <result_files_target_step/>
+    <result_files_target_step>Write to log</result_files_target_step>
     <result_files_file_name_field>FileName</result_files_file_name_field>
     <executors_output_step/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>501</xloc>
-      <yloc>226</yloc>
+      <xloc>491</xloc>
+      <yloc>196</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d; File Execution log &#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;</logmessage>
+    <fields>
+      <field>
+        <name>ExecutionTime</name>
+        </field>
+      <field>
+        <name>ExecutionResult</name>
+        </field>
+      <field>
+        <name>ExecutionExitStatus</name>
+        </field>
+      <field>
+        <name>ExecutionLogChannelId</name>
+        </field>
+      <field>
+        <name>ExecutionLogText</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>858</xloc>
+      <yloc>280</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
