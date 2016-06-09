@@ -1,0 +1,10 @@
+DELETE FROM recap.bibliographic_item_t;
+DELETE FROM recap.item_t;
+DELETE FROM recap.bibliographic_holdings_t;
+DELETE FROM recap.holdings_t;
+DELETE FROM recap.bibliographic_t;
+ALTER TABLE `recap`.`bibliographic_item_t` AUTO_INCREMENT = 1 ;
+ALTER TABLE `recap`.`item_t` AUTO_INCREMENT = 1 ;
+ALTER TABLE `recap`.`bibliographic_holdings_t` AUTO_INCREMENT = 1 ;
+ALTER TABLE `recap`.`holdings_t` AUTO_INCREMENT = 1 ;
+ALTER TABLE `recap`.`bibliographic_t` AUTO_INCREMENT = 1 ;
