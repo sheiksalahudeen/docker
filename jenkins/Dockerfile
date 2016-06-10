@@ -11,8 +11,8 @@ sudo apt-get update && \
 apt-get install -q -y jenkins
 ENV JENKINS_HOME /var/lib/jenkins/
 RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git-client/1.19.6/git-client.hpi && \
-wget http://updates.jenkins-ci.org/download/plugins/git/2.4.4/git.hpi
-#wget http://updates.jenkins-ci.org/download/plugins/scm-api/1.2/scm-api.hpi
+wget http://updates.jenkins-ci.org/download/plugins/git/2.4.4/git.hpi && \
+wget http://updates.jenkins-ci.org/download/plugins/scm-api/1.2/scm-api.hpi
 #RUN mkdir /var/lib/jenkins/plugins
 #RUN cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git-client/1.19.6/git-client.hpi
 #RUN cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git/2.4.4/git.hpi
