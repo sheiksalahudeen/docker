@@ -12,6 +12,9 @@ apt-get install -q -y jenkins
 
 
 #Install Maven 3.3.3
-#RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz | tar -C /opt/ --extract --gzip
-#ENV MAVEN_HOME /opt/apache-maven-3.3.3
-#ENV PATH $MAVEN_HOME/bin:$PATH
+RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz | tar -C /opt/ --extract --gzip
+ENV MAVEN_HOME /opt/apache-maven-3.3.3
+ENV PATH $MAVEN_HOME/bin:$PATH
+
+#Install git
+RUN apt-get install -q -y git
