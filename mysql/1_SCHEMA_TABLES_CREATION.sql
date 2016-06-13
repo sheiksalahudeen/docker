@@ -42,7 +42,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `recap`.`ITEM_STATUS_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_STATUS_T` (
-  `ITEM_STATUS_ID` INT NOT NULL ,
+  `ITEM_STATUS_ID` INT NOT NULL AUTO_INCREMENT ,
   `STATUS_CODE` VARCHAR(45) NOT NULL ,
   `STATUS_DESC` VARCHAR(2000) NOT NULL ,
   PRIMARY KEY (`ITEM_STATUS_ID`) )
@@ -53,7 +53,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`INSTITUTION_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`INSTITUTION_T` (
-  `INSTITUTION_ID` INT NOT NULL ,
+  `INSTITUTION_ID` INT NOT NULL AUTO_INCREMENT ,
   `INSTITUTION_CODE` VARCHAR(45) NOT NULL ,
   `INSTITUTION_NAME` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`INSTITUTION_ID`) )
@@ -64,7 +64,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`COLLECTION_GROUP_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`COLLECTION_GROUP_T` (
-  `COLLECTION_GROUP_ID` INT NULL ,
+  `COLLECTION_GROUP_ID` INT NULL AUTO_INCREMENT ,
   `COLLECTION_GROUP_CODE` VARCHAR(45) NOT NULL ,
   `COLLECTIONT_GROUP_DESC` VARCHAR(45) NULL ,
   `CREATED_DATE` DATETIME NOT NULL ,
@@ -129,7 +129,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `recap`.`REQUEST_TYPE_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_TYPE_T` (
-  `REQUEST_TYPE_ID` INT NOT NULL ,
+  `REQUEST_TYPE_ID` INT NOT NULL AUTO_INCREMENT ,
   `REQUEST_TYPE_CODE` VARCHAR(45) NOT NULL ,
   `REQUEST_TYPE_DESC` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`REQUEST_TYPE_ID`) )
@@ -140,7 +140,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`PATRON_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`PATRON_T` (
-  `PATRON_ID` INT NOT NULL ,
+  `PATRON_ID` INT NOT NULL AUTO_INCREMENT ,
   `INST_IDENTIFIER` VARCHAR(45) NULL ,
   `INST_ID` INT NOT NULL ,
   `EMAIL_ID` VARCHAR(45) NULL ,
@@ -157,7 +157,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`REQUEST_ITEM_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_ITEM_T` (
-  `REQUEST_ID` INT NOT NULL ,
+  `REQUEST_ID` INT NOT NULL AUTO_INCREMENT ,
   `ITEM_ID` INT NOT NULL ,
   `REQUEST_TYPE_ID` INT NOT NULL ,
   `REQ_EXP_DATE` DATETIME NULL ,
@@ -216,7 +216,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`LOAN_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`LOAN_T` (
-  `LOAN_ID` INT NOT NULL ,
+  `LOAN_ID` INT NOT NULL AUTO_INCREMENT ,
   `ITEM_ID` INT NOT NULL ,
   `LOAN_DUE_DATE` DATETIME NOT NULL ,
   `PATRON_ID` INT NOT NULL ,
@@ -240,7 +240,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`AUDIT_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`AUDIT_T` (
-  `AUDIT_ID` INT NOT NULL ,
+  `AUDIT_ID` INT NOT NULL AUTO_INCREMENT ,
   `TABLE_NAME` VARCHAR(45) NOT NULL ,
   `COLUMN_UPDATED` VARCHAR(45) NOT NULL ,
   `VALUE` BLOB NOT NULL ,
@@ -253,7 +253,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`NOTES_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`NOTES_T` (
-  `NOTES_ID` INT NOT NULL ,
+  `NOTES_ID` INT NOT NULL AUTO_INCREMENT ,
   `NOTES` VARCHAR(2000) NULL ,
   `ITEM_ID` INT NULL ,
   `REQUEST_ID` INT NULL ,
@@ -277,7 +277,7 @@ ENGINE = InnoDB;
 -- Table `recap`.`ITEM_TRACKING_INFO_T`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_TRACKING_INFO_T` (
-  `TRACKING_INFO_ID` INT NOT NULL ,
+  `TRACKING_INFO_ID` INT NOT NULL AUTO_INCREMENT ,
   `TRACKING_STATUS_ID` INT NOT NULL ,
   `BIN_NUMBER` VARCHAR(45) NOT NULL ,
   `ITEM_ID` INT NULL ,
