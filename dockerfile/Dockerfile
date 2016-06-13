@@ -66,7 +66,7 @@ RUN curl http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-c
 RUN cd /opt/solr-6.0.1/bin && ./solr start && ./solr create -c recap
 RUN cp /opt/scsb-solr/src/main/resources/data-config.xml /opt/solr-6.0.1/server/solr/recap/conf
 RUN cp /opt/scsb-solr/src/main/resources/solrconfig.xml /opt/solr-6.0.1/server/solr/recap/conf
-RUN cp /opt/scsb-solr/src/main/resources/managed-schema /opt/solr-6.0.1/server/solr/recap/conf
+#RUN cp /opt/scsb-solr/src/main/resources/managed-schema /opt/solr-6.0.1/server/solr/recap/conf
 
 EXPOSE 8080
 #CMD ["/opt/tomcat8/bin/startup.sh"] && tail -1000f /opt/tomcat8/logs/catalina.out
