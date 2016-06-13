@@ -45,7 +45,7 @@ ENV PATH $PATH:$CATALINA_HOME/bin
 RUN echo ${CATALINA_HOME}
 
 #Install Solr
-RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /recap-vol/ --extract --gzip
+RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /opt/ --extract --gzip
 
 #Install Maven 3.3.3
 RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz | tar -C /opt/ --extract --gzip
