@@ -23,5 +23,11 @@ RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apa
 ENV MAVEN_HOME /opt/apache-maven-3.3.3
 ENV PATH $MAVEN_HOME/bin:$PATH
 
+#Intall Gradle Plugin
+RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget https://updates.jenkins-ci.org/download/plugins/gradle/1.24/gradle.hpi
+
+#Install SSH Plugin
+RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget https://updates.jenkins-ci.org/download/plugins/ssh/2.4/ssh.hpi
+
 #Install git
 RUN apt-get install -q -y git
