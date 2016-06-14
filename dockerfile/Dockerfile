@@ -45,7 +45,7 @@ ENV PATH $PATH:$CATALINA_HOME/bin
 RUN echo ${CATALINA_HOME}
 
 #Install Solr
-RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /recap-vol/ --extract --gzip
+RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /opt/ --extract --gzip
 
 #Install Maven 3.3.3
 RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz | tar -C /opt/ --extract --gzip
@@ -66,7 +66,12 @@ RUN curl http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-c
 RUN cd /opt/solr-6.0.1/bin && ./solr start && ./solr create -c recap
 RUN cp /opt/scsb-solr/src/main/resources/data-config.xml /opt/solr-6.0.1/server/solr/recap/conf
 RUN cp /opt/scsb-solr/src/main/resources/solrconfig.xml /opt/solr-6.0.1/server/solr/recap/conf
-#RUN cp /opt/scsb-solr/src/main/resources/managed-schema /opt/solr-6.0.1/server/solr/recap/conf
+RUN cp /opt/scsb-solr/src/main/resources/managed-schema /opt/solr-6.0.1/server/solr/recap/conf
+RUN mkdir /opt/solr-6.0.1/server/solr/configsets/recap_config && \
+    mkdir /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
+    cp -R /opt/solr-6.0.1/server/solr/configsets/basic_configs/conf/* /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
+    cp -R /opt/solr-6.0.1/server/solr/recap/conf/managed-schema /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
+    cp -R /opt/solr-6.0.1/server/solr/recap/conf/lang /opt/solr-6.0.1/server/solr/configsets/recap_config/conf
 
 EXPOSE 8080
 #CMD ["/opt/tomcat8/bin/startup.sh"] && tail -1000f /opt/tomcat8/logs/catalina.out
