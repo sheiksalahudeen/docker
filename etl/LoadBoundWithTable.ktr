@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>LoadBoundwithTable-V1</name>
+    <name>LoadBoundWithTable</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -165,116 +165,9 @@
   </connection>
   <order>
   <hop> <from>BoundWith Excel Input</from><to>Lookup Item Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Item Table</from><to>Bib Item Failed Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Item Table</from><to>Bib Item Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Item Table</from><to>Bib Item Failed Excel Writer</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Bib Item Failed Excel Output</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBoundWithItems</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
-      <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Bib Items Failed</sheetname>
-      <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-      </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>BibId</name>
-        <type>Number</type>
-        <format/>
-      </field>
-      <field>
-        <name>HoldingsId</name>
-        <type>Number</type>
-        <format/>
-      </field>
-      <field>
-        <name>LocalItemId</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>BIB_INSTITUTION_ID</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ItemBarcode</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>LookupItemId</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>Err_desc</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Err_Desc_1</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>764</xloc>
-      <yloc>191</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Bib Item Table</name>
     <type>TableOutput</type>
@@ -306,11 +199,11 @@
     <fields>
         <field>
           <column_name>ITEM_ID</column_name>
-          <stream_name>LookupItemId</stream_name>
+          <stream_name>Scsb ItemId</stream_name>
         </field>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibId</stream_name>
+          <stream_name>Scsb BibId</stream_name>
         </field>
     </fields>
      <cluster_schema/>
@@ -356,7 +249,43 @@
     </file>
     <fields>
       <field>
-        <name>BibId</name>
+        <name>owningInstitutionId</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>OWNING_INSTITUTION_BIB_ID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>owningInstitutionHoldingsId</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Scsb BibId</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -368,7 +297,7 @@
         <group/>
       </field>
       <field>
-        <name>HoldingsId</name>
+        <name>Scsb HoldingsId</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -392,6 +321,18 @@
         <group/>
       </field>
       <field>
+        <name>ItemBarcode</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>BIB_INSTITUTION_ID</name>
         <type>String</type>
         <length>-1</length>
@@ -404,7 +345,7 @@
         <group/>
       </field>
       <field>
-        <name>ItemBarcode</name>
+        <name>CollectionGroupCode</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -496,7 +437,7 @@
       </key>
       <value>
         <name>ITEM_ID</name>
-        <rename>LookupItemId</rename>
+        <rename>Scsb ItemId</rename>
         <default/>
         <type>Integer</type>
       </value>
@@ -509,10 +450,129 @@
       </GUI>
     </step>
 
+  <step>
+    <name>Bib Item Failed Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBoundWithItems</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Bib Items Failed</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+    </template>
+    <fields>
+      <field>
+        <name>Scsb BibId</name>
+        <type>Number</type>
+        <format/>
+        <title>Scsb BibId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Scsb ItemId</name>
+        <type>Integer</type>
+        <format/>
+        <title>Scsb ItemId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ItemBarcode</name>
+        <type>String</type>
+        <format/>
+        <title>ItemBarcode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>BIB_INSTITUTION_ID</name>
+        <type>String</type>
+        <format/>
+        <title>BIB_INSTITUTION_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Err_Desc_1</name>
+        <type>String</type>
+        <format/>
+        <title>Err_Desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>757</xloc>
+      <yloc>193</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
       <error>
         <source_step>Bib Item Table</source_step>
-        <target_step>Bib Item Failed Excel Output</target_step>
+        <target_step>Bib Item Failed Excel Writer</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename>Err_Desc</descriptions_valuename>
