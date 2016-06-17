@@ -107,34 +107,13 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;06&#x2f;06 12&#x3a;56&#x3a;42.558</created_date>
+  <created_date>2016&#x2f;06&#x2f;16 19&#x3a;02&#x3a;39.330</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;06&#x2f;07 17&#x3a;28&#x3a;23.382</modified_date>
+  <modified_date>2016&#x2f;06&#x2f;16 19&#x3a;02&#x3a;39.330</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Note to use this transformation&#xa;&#xa;--&#x3e; Select xml file from step. Browse and Add - &#x27;Input Schema Xml&#x27;&#xa;--&#x3e; Create a new database connection in step - &#x27;Bib Table&#x27; &#xa;--&#x3e; Select the created connection in step - &#x27;Holdings Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Item Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Bib Holdings Table&#x27;&#xa;--&#x3e; Select the created connection in step - &#x27;Bib Item Table&#x27;</note>
-      <xloc>7</xloc>
-      <yloc>9</yloc>
-      <width>445</width>
-      <heigth>146</heigth>
-      <fontname>Ubuntu</fontname>
-      <fontsize>11</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>Recap-Param</name>
@@ -165,27 +144,32 @@
   </connection>
   <order>
   <hop> <from>Add constants</from><to>Modify dates and throw barcode exception</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Holdings Table</from><to>Bib Holdings Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Item Table</from><to>Bib Item Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Bib Table</from><to>BIb Failed Excel Output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Table</from><to>Find Duplicate Bib</to><enabled>Y</enabled> </hop>
   <hop> <from>Bib Table</from><to>Modify HoldingsTree if null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Table Lookup</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Current Date</from><to>Modify dates, institutionId and institutionBibId</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows on duplicate</from><to>BoundWith Excel Report</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows on duplicate</from><to>Item Failed Excel Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Holdings Schema Xml</from><to>Modify dates and holdingsInstitutionId</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter Rows On Duplicate Bib</from><to>Bib Table Lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Find Duplicate Bib</from><to>Filter Rows On Duplicate Bib</to><enabled>Y</enabled> </hop>
+  <hop> <from>Find Duplicate Item</from><to>Filter Rows On Duplicate Item</to><enabled>Y</enabled> </hop>
+  <hop> <from>Holdings Schema Xml</from><to>Modify dates</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Table</from><to>Bib Holdings Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Holdings Table</from><to>Holding Failed Excel Output</to><enabled>Y</enabled> </hop>
   <hop> <from>Holdings Table</from><to>Modify Items if null</to><enabled>Y</enabled> </hop>
   <hop> <from>Input Schema Xml</from><to>Current Date</to><enabled>Y</enabled> </hop>
   <hop> <from>Item Schema Xml</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Item Table</from><to>Bib Item Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Item Table</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modified Java Script Value</from><to>Filter rows on duplicate</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modify dates and holdingsInstitutionId</from><to>Holdings Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modify dates and throw barcode exception</from><to>Item Table</to><enabled>Y</enabled> </hop>
-  <hop> <from>Modify dates, institutionId and institutionBibId</from><to>Bib Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Item Table</from><to>Find Duplicate Item</to><enabled>Y</enabled> </hop>
   <hop> <from>Modify HoldingsTree if null</from><to>Holdings Schema Xml</to><enabled>Y</enabled> </hop>
   <hop> <from>Modify Items if null</from><to>Item Schema Xml</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify dates</from><to>Holdings Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify dates and throw barcode exception</from><to>Item Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Modify dates, institutionId and institutionBibId</from><to>Bib Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Modify HoldingsTree if null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter Rows On Duplicate Item</from><to>Items Failed Excel Writer</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter Rows On Duplicate Bib</from><to>Bibs Failed Excel Writer</to><enabled>Y</enabled> </hop>
+  <hop> <from>Holdings Table</from><to>Holdings Failed Excel Writer</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Holdings Table</from><to>Bib Holdings Failed Excel Writer</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter Rows On Duplicate Item</from><to>BoundWithItem Excel Report</to><enabled>Y</enabled> </hop>
+  <hop> <from>Bib Item Table</from><to>Bib Items Failed Excel Writer</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -214,15 +198,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>228</xloc>
-      <yloc>585</yloc>
+      <xloc>193</xloc>
+      <yloc>611</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>BIb Failed Excel Output</name>
-    <type>ExcelOutput</type>
+    <name>Bib Holdings Failed Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -233,178 +217,84 @@
            </partitioning>
     <header>Y</header>
     <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBibs</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
-      <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Bibs Failed</sheetname>
-      <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-      </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>owningInstitutionId</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>owningInstitutionBibId</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>BibInstitutionIdFrom001</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>BIB_INSTITUTION_ID</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>OWNING_INSTITUTION_BIB_ID</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>createDateBib</name>
-        <type>Date</type>
-        <format/>
-      </field>
-      <field>
-        <name>lastUpdatedDateBib</name>
-        <type>Date</type>
-        <format/>
-      </field>
-      <field>
-        <name>Err_desc</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>786</xloc>
-      <yloc>189</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Bib Holdings Failed Excel Output</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
     <add_to_result_filenames>N</add_to_result_filenames>
     <file>
       <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBibHoldings</name>
       <extention>xls</extention>
       <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
       <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Holdings Failed</sheetname>
+      <date_time_format/>
+      <sheetname>Bib Holdings Failed</sheetname>
       <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
+      <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
+      <protected_by/>
       <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
       </file>
     <template>
       <enabled>N</enabled>
-      <append>N</append>
+      <sheet_enabled>N</sheet_enabled>
       <filename>template.xls</filename>
+      <sheetname/>
     </template>
     <fields>
       <field>
-        <name>BibId</name>
+        <name>Scsb BibId</name>
         <type>Integer</type>
         <format/>
+        <title>Scsb BibId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
-        <name>HoldingsId</name>
+        <name>Scsb HoldingsId</name>
         <type>Integer</type>
         <format/>
+        <title>Scsb HoldingsId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>Err_desc</name>
         <type>String</type>
         <format/>
+        <title>Err_desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
     </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>975</xloc>
-      <yloc>403</yloc>
+      <xloc>897</xloc>
+      <yloc>405</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -440,99 +330,17 @@
     <fields>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibId</stream_name>
+          <stream_name>Scsb BibId</stream_name>
         </field>
         <field>
           <column_name>HOLDINGS_ID</column_name>
-          <stream_name>HoldingsId</stream_name>
+          <stream_name>Scsb HoldingsId</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>754</xloc>
-      <yloc>402</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Bib Item Failed Excel Output</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBibItems</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
-      <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Holdings Failed</sheetname>
-      <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-      </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>BibId</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>ItemId</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>Err_desc</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>966</xloc>
-      <yloc>642</yloc>
+      <xloc>717</xloc>
+      <yloc>407</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -568,17 +376,112 @@
     <fields>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibId</stream_name>
+          <stream_name>Scsb BibId</stream_name>
         </field>
         <field>
           <column_name>ITEM_ID</column_name>
-          <stream_name>ItemId</stream_name>
+          <stream_name>Scsb ItemId</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>800</xloc>
-      <yloc>641</yloc>
+      <xloc>727</xloc>
+      <yloc>663</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Bib Items Failed Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBibItems</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Bib Items Failed</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+    </template>
+    <fields>
+      <field>
+        <name>Scsb BibId</name>
+        <type>Integer</type>
+        <format/>
+        <title>Scsb BibId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Scsb ItemId</name>
+        <type>Integer</type>
+        <format/>
+        <title>Scsb ItemId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Err_desc</name>
+        <type>String</type>
+        <format/>
+        <title>Err_desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>910</xloc>
+      <yloc>662</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -610,7 +513,7 @@
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>Y</return_keys>
-    <return_field>BibId</return_field>
+    <return_field>Scsb BibId</return_field>
     <fields>
         <field>
           <column_name>CONTENT</column_name>
@@ -635,15 +538,63 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>634</xloc>
-      <yloc>189</yloc>
+      <xloc>625</xloc>
+      <yloc>91</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>BoundWith Excel Report</name>
-    <type>ExcelOutput</type>
+    <name>Bib Table Lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Recap-Param</connection>
+    <cache>Y</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>bibliographic_t</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>BIB_INSTITUTION_ID</name>
+        <field>OWNING_INST_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>OWNING_INSTITUTION_BIB_ID</name>
+        <field>OWNING_INST_BIB_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>BIBLIOGRAPHIC_ID</name>
+        <rename>BIBLIOGRAPHIC_ID</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1068</xloc>
+      <yloc>177</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Bibs Failed Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -654,86 +605,287 @@
            </partitioning>
     <header>Y</header>
     <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
     <add_to_result_filenames>N</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;BoundWithItems</name>
+      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedBibs</name>
       <extention>xls</extention>
       <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
       <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Sheet1</sheetname>
+      <date_time_format/>
+      <sheetname>Bibs Failed</sheetname>
       <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
+      <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
+      <protected_by/>
       <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
       </file>
     <template>
       <enabled>N</enabled>
-      <append>N</append>
+      <sheet_enabled>N</sheet_enabled>
       <filename>template.xls</filename>
+      <sheetname/>
     </template>
     <fields>
       <field>
-        <name>BibId</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>HoldingsId</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>LocalItemId</name>
+        <name>owningInstitutionId</name>
         <type>String</type>
         <format/>
+        <title>owningInstitutionId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
-        <name>BIB_INSTITUTION_ID</name>
+        <name>OWNING_INSTITUTION_BIB_ID</name>
         <type>String</type>
         <format/>
+        <title>OWNING_INSTITUTION_BIB_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
-        <name>ItemBarcode</name>
-        <type>String</type>
-        <format/>
+        <name>createDateBib</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</format>
+        <title>createDateBib</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>lastUpdatedDateBib</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</format>
+        <title>lastUpdatedDateBib</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>Err_desc</name>
         <type>String</type>
         <format/>
+        <title>Err_desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
     </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1177</xloc>
-      <yloc>551</yloc>
+      <xloc>1065</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>BoundWithItem Excel Report</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;BoundWithItems</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+    </template>
+    <fields>
+      <field>
+        <name>owningInstitutionId</name>
+        <type>String</type>
+        <format/>
+        <title>owningInstitutionId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>OWNING_INSTITUTION_BIB_ID</name>
+        <type>String</type>
+        <format/>
+        <title>OWNING_INSTITUTION_BIB_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>owningInstitutionHoldingsId</name>
+        <type>String</type>
+        <format/>
+        <title>owningInstitutionHoldingsId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Scsb BibId</name>
+        <type>Integer</type>
+        <format/>
+        <title>Scsb BibId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Scsb HoldingsId</name>
+        <type>Integer</type>
+        <format/>
+        <title>Scsb HoldingsId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>LocalItemId</name>
+        <type>String</type>
+        <format/>
+        <title>LocalItemId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ItemBarcode</name>
+        <type>String</type>
+        <format/>
+        <title>ItemBarcode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>BIB_INSTITUTION_ID</name>
+        <type>String</type>
+        <format/>
+        <title>BIB_INSTITUTION_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CollectionGroupCode</name>
+        <type>String</type>
+        <format/>
+        <title>CollectionGroupCode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Err_desc</name>
+        <type>String</type>
+        <format/>
+        <title>Err_desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1072</xloc>
+      <yloc>571</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -757,14 +909,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>196</xloc>
-      <yloc>194</yloc>
+      <xloc>187</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Filter rows on duplicate</name>
+    <name>Filter Rows On Duplicate Bib</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -774,27 +926,128 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>BoundWith Excel Report</send_true_to>
-<send_false_to>Item Failed Excel Output</send_false_to>
+<send_true_to/>
+<send_false_to/>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>isDuplicate</leftvalue>
+ <leftvalue>isDuplicateBib</leftvalue>
  <function>&#x3d;</function>
  <rightvalue/>
  <value><name>constant</name><type>String</type><text>true</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>989</xloc>
-      <yloc>504</yloc>
+      <xloc>922</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Holding Failed Excel Output</name>
-    <type>ExcelOutput</type>
+    <name>Filter Rows On Duplicate Item</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to/>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>isDuplicateItem</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>true</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>910</xloc>
+      <yloc>520</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Find Duplicate Bib</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var errorDesc &#x3d; Err_desc&#x3b;&#xa;var isDuplicateBib &#x3d; &#x22;false&#x22;&#x3b;&#xa;var indexValBib &#x3d; indexOf&#x28;errorDesc, &#x22;OWNING_INST_ID_BIB_ID_UNIQUE&#x22;&#x29;&#x3b;&#xa;&#xa;if &#x28;indexValBib &#x21;&#x3d; null &#x26;&#x26; &#x21;isEmpty&#x28;indexValBib&#x29;&#x29; &#x7b;&#xa;	if &#x28;indexValBib &#x3e; 0&#x29; &#x7b;&#xa;		isDuplicateBib &#x3d; &#x22;true&#x22;&#x3b;&#xa;	&#x7d;&#xa;&#x7d;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>isDuplicateBib</name>
+        <rename>isDuplicateBib</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>indexValBib</name>
+        <rename>indexValBib</rename>
+        <type>Integer</type>
+        <length>9</length>
+        <precision>0</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>750</xloc>
+      <yloc>90</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Find Duplicate Item</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var errorDesc &#x3d; Err_desc&#x3b;&#xa;var isDuplicateItem &#x3d; &#x22;false&#x22;&#x3b;&#xa;var str2&#x3d; indexOf&#x28;errorDesc, &#x22;OWNING_INST_ID_ITEM_ID_UNIQUE&#x22;&#x29;&#x3b;&#xa;&#xa;if &#x28;str2 &#x21;&#x3d; null &#x26;&#x26; &#x21;isEmpty&#x28;str2&#x29;&#x29; &#x7b;&#xa;	if &#x28;str2 &#x3e; 0&#x29; &#x7b;&#xa;		isDuplicateItem &#x3d; &#x22;true&#x22;&#x3b;&#xa;	&#x7d;&#xa;&#x7d;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>isDuplicateItem</name>
+        <rename>isDuplicateItem</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>str2</name>
+        <rename>str2</rename>
+        <type>Integer</type>
+        <length>9</length>
+        <precision>0</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>723</xloc>
+      <yloc>521</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Holdings Failed Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -805,101 +1058,156 @@
            </partitioning>
     <header>Y</header>
     <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
     <add_to_result_filenames>N</add_to_result_filenames>
     <file>
       <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedHoldings</name>
       <extention>xls</extention>
       <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
       <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
+      <date_time_format/>
       <sheetname>Holdings Failed</sheetname>
       <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
+      <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
+      <protected_by/>
       <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
       </file>
     <template>
       <enabled>N</enabled>
-      <append>N</append>
+      <sheet_enabled>N</sheet_enabled>
       <filename>template.xls</filename>
+      <sheetname/>
     </template>
     <fields>
       <field>
-        <name>BibId</name>
-        <type>Integer</type>
+        <name>owningInstitutionId</name>
+        <type>String</type>
         <format/>
+        <title>owningInstitutionId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>OWNING_INSTITUTION_BIB_ID</name>
+        <type>String</type>
+        <format/>
+        <title>OWNING_INSTITUTION_BIB_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>owningInstitutionHoldingsId</name>
         <type>String</type>
         <format/>
+        <title>owningInstitutionHoldingsId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
-        <name>HoldingInstitutionIdFrom001</name>
-        <type>String</type>
+        <name>Scsb BibId</name>
+        <type>Integer</type>
         <format/>
-      </field>
-      <field>
-        <name>OWNING_INSTITUTION_HOLDING_ID</name>
-        <type>String</type>
-        <format/>
+        <title>Scsb BibId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>callNumber</name>
         <type>String</type>
         <format/>
+        <title>callNumber</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>callNumberType</name>
         <type>String</type>
         <format/>
+        <title>callNumberType</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>createDateHoldings</name>
         <type>Date</type>
-        <format/>
+        <format>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</format>
+        <title>createDateHoldings</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>lastUpdatedDateHoldings</name>
         <type>Date</type>
-        <format/>
+        <format>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</format>
+        <title>lastUpdatedDateHoldings</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
       <field>
         <name>Err_desc</name>
         <type>String</type>
         <format/>
+        <title>Err_desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
     </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>754</xloc>
-      <yloc>290</yloc>
+      <xloc>716</xloc>
+      <yloc>284</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -939,21 +1247,6 @@
       <field>
         <name>owningInstitutionHoldingsId</name>
         <xpath>owningInstitutionHoldingsId</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>HoldingInstitutionIdFrom001</name>
-        <xpath>content&#x2f;collection&#x2f;record&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;controlfield&#x27;&#x5d;&#x5b;&#x40;tag&#x3d;&#x27;001&#x27;&#x5d;</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1043,7 +1336,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>75</xloc>
+      <xloc>77</xloc>
       <yloc>364</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1076,11 +1369,15 @@
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>Y</return_keys>
-    <return_field>HoldingsId</return_field>
+    <return_field>Scsb HoldingsId</return_field>
     <fields>
         <field>
           <column_name>CONTENT</column_name>
           <stream_name>HoldingContent</stream_name>
+        </field>
+        <field>
+          <column_name>BIBLIOGRAPHIC_ID</column_name>
+          <stream_name>Scsb BibId</stream_name>
         </field>
         <field>
           <column_name>CREATED_DATE</column_name>
@@ -1091,18 +1388,14 @@
           <stream_name>lastUpdatedDateHoldings</stream_name>
         </field>
         <field>
-          <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibId</stream_name>
-        </field>
-        <field>
           <column_name>OWNING_INST_HOLDINGS_ID</column_name>
-          <stream_name>OWNING_INSTITUTION_HOLDING_ID</stream_name>
+          <stream_name>owningInstitutionHoldingsId</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>566</xloc>
-      <yloc>353</yloc>
+      <xloc>544</xloc>
+      <yloc>356</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1231,170 +1524,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>74</xloc>
-      <yloc>197</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Item Failed Excel Output</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding>UTF-8</encoding>
-    <append>N</append>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedItems</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <create_parent_folder>Y</create_parent_folder>
-      <split>N</split>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</date_time_format>
-      <sheetname>Item Failed</sheetname>
-      <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-      </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>BibId</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>HoldingsId</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>OWNING_INSTITUTION_HOLDING_ID</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>OWNING_INSTITUTION_BIB_ID</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>LocalItemId</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ItemBarcode</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>CustomerCode</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>callNumber</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>callNumberType</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ITEM_STATUS_ID</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>CopyNumber</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>BIB_INSTITUTION_ID</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>COLLECTION_GROUP_ID</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-      </field>
-      <field>
-        <name>createDateItem</name>
-        <type>Date</type>
-        <format/>
-      </field>
-      <field>
-        <name>lastUpdatedDateItem</name>
-        <type>Date</type>
-        <format/>
-      </field>
-      <field>
-        <name>UseRestrictions</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>VolPartYear</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>itemExceptionMessage</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>Err_desc</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-    <header_font_name>arial</header_font_name>
-    <header_font_size>10</header_font_size>
-    <header_font_bold>Y</header_font_bold>
-    <header_font_italic>N</header_font_italic>
-    <header_font_underline>no</header_font_underline>
-    <header_font_orientation>horizontal</header_font_orientation>
-    <header_font_color>black</header_font_color>
-    <header_background_color>none</header_background_color>
-    <header_row_height>255</header_row_height>
-    <header_alignment>left</header_alignment>
-    <header_image/>
-    <row_font_name>arial</row_font_name>
-    <row_font_size>10</row_font_size>
-    <row_font_color>black</row_font_color>
-    <row_background_color>none</row_background_color>
-      </custom>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1177</xloc>
-      <yloc>433</yloc>
+      <xloc>65</xloc>
+      <yloc>99</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1568,8 +1699,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>75</xloc>
-      <yloc>585</yloc>
+      <xloc>71</xloc>
+      <yloc>612</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1601,7 +1732,7 @@
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>Y</return_keys>
-    <return_field>ItemId</return_field>
+    <return_field>Scsb ItemId</return_field>
     <fields>
         <field>
           <column_name>BAR_CODE</column_name>
@@ -1613,7 +1744,7 @@
         </field>
         <field>
           <column_name>BIBLIOGRAPHIC_ID</column_name>
-          <stream_name>BibId</stream_name>
+          <stream_name>Scsb BibId</stream_name>
         </field>
         <field>
           <column_name>USE_RESTRICTIONS</column_name>
@@ -1629,7 +1760,7 @@
         </field>
         <field>
           <column_name>HOLDINGS_ID</column_name>
-          <stream_name>HoldingsId</stream_name>
+          <stream_name>Scsb HoldingsId</stream_name>
         </field>
         <field>
           <column_name>CREATED_DATE</column_name>
@@ -1666,15 +1797,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>663</xloc>
-      <yloc>579</yloc>
+      <xloc>598</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Modified Java Script Value</name>
-    <type>ScriptValueMod</type>
+    <name>Items Failed Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1683,27 +1814,302 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var errorDesc &#x3d; Err_desc&#x3b;&#xa;var isDuplicate &#x3d; &#x22;false&#x22;&#x3b;&#xa;var str2&#x3d; indexOf&#x28;errorDesc, &#x22;OWNING_INST_ID_ITEM_ID_UNIQUE&#x22;&#x29;&#x3b;&#xa;&#xa;if &#x28;str2 &#x21;&#x3d; null &#x26;&#x26; &#x21;isEmpty&#x28;str2&#x29;&#x29; &#x7b;&#xa;	if &#x28;str2 &#x3e; 0&#x29; &#x7b;&#xa;		isDuplicate &#x3d; &#x22;true&#x22;&#x3b;&#xa;	&#x7d;&#xa;&#x7d;&#xa;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>isDuplicate</name>
-        <rename>isDuplicate</rename>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>Y</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;loadReportsFilePath&#x7d;&#x2f;FailedItems</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Items Failed</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+    </template>
+    <fields>
+      <field>
+        <name>owningInstitutionId</name>
         <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>str2</name>
-        <rename>str2</rename>
+        <format/>
+        <title>owningInstitutionId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>OWNING_INSTITUTION_BIB_ID</name>
+        <type>String</type>
+        <format/>
+        <title>OWNING_INSTITUTION_BIB_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>owningInstitutionHoldingsId</name>
+        <type>String</type>
+        <format/>
+        <title>owningInstitutionHoldingsId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Scsb BibId</name>
         <type>Integer</type>
-        <length>9</length>
-        <precision>0</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
+        <format/>
+        <title>Scsb BibId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Scsb HoldingsId</name>
+        <type>Integer</type>
+        <format/>
+        <title>Scsb HoldingsId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>LocalItemId</name>
+        <type>String</type>
+        <format/>
+        <title>LocalItemId</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>callNumber</name>
+        <type>String</type>
+        <format/>
+        <title>callNumber</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>callNumberType</name>
+        <type>String</type>
+        <format/>
+        <title>callNumberType</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>UseRestrictions</name>
+        <type>String</type>
+        <format/>
+        <title>UseRestrictions</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ItemStatus</name>
+        <type>String</type>
+        <format/>
+        <title>ItemStatus</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ItemBarcode</name>
+        <type>String</type>
+        <format/>
+        <title>ItemBarcode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CopyNumber</name>
+        <type>String</type>
+        <format/>
+        <title>CopyNumber</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>VolPartYear</name>
+        <type>String</type>
+        <format/>
+        <title>VolPartYear</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>COLLECTION_GROUP_ID</name>
+        <type>String</type>
+        <format/>
+        <title>COLLECTION_GROUP_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CollectionGroupCode</name>
+        <type>String</type>
+        <format/>
+        <title>CollectionGroupCode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CustomerCode</name>
+        <type>String</type>
+        <format/>
+        <title>CustomerCode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ITEM_STATUS_ID</name>
+        <type>Integer</type>
+        <format/>
+        <title>ITEM_STATUS_ID</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>createDateItem</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</format>
+        <title>createDateItem</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>lastUpdatedDateItem</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</format>
+        <title>lastUpdatedDateItem</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>itemExceptionMessage</name>
+        <type>String</type>
+        <format/>
+        <title>itemExceptionMessage</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Err_desc</name>
+        <type>String</type>
+        <format/>
+        <title>Err_desc</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>802</xloc>
-      <yloc>506</yloc>
+      <xloc>1071</xloc>
+      <yloc>452</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1736,8 +2142,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>346</xloc>
-      <yloc>277</yloc>
+      <xloc>425</xloc>
+      <yloc>188</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1770,14 +2176,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>301</xloc>
-      <yloc>473</yloc>
+      <xloc>322</xloc>
+      <yloc>482</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Modify dates and holdingsInstitutionId</name>
+    <name>Modify dates</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>N</distribute>
@@ -1791,7 +2197,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var createDateHoldings &#x3d; CURR_DATE&#x3b;&#xa;var lastUpdatedDateHoldings &#x3d; CURR_DATE&#x3b;&#xa;&#xa;var OWNING_INSTITUTION_HOLDING_ID&#x3b;&#xa;&#xa;if &#x28;owningInstitutionHoldingsId &#x21;&#x3d; null &#x26;&#x26; &#x21;isEmpty&#x28;owningInstitutionHoldingsId&#x29;&#x29; &#x7b;&#xa;	OWNING_INSTITUTION_HOLDING_ID &#x3d; owningInstitutionHoldingsId&#x3b;&#xa;&#x7d; else &#x7b;&#xa;	OWNING_INSTITUTION_HOLDING_ID &#x3d; HoldingInstitutionIdFrom001&#x3b;&#xa;&#x7d;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var createDateHoldings &#x3d; CURR_DATE&#x3b;&#xa;var lastUpdatedDateHoldings &#x3d; CURR_DATE&#x3b;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>createDateHoldings</name>
         <rename>createDateHoldings</rename>
         <type>Date</type>
@@ -1804,16 +2210,10 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>OWNING_INSTITUTION_HOLDING_ID</name>
-        <rename>OWNING_INSTITUTION_HOLDING_ID</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>301</xloc>
-      <yloc>362</yloc>
+      <xloc>330</xloc>
+      <yloc>358</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1860,8 +2260,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>447</xloc>
-      <yloc>579</yloc>
+      <xloc>400</xloc>
+      <yloc>609</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1908,8 +2308,72 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>410</xloc>
-      <yloc>190</yloc>
+      <xloc>401</xloc>
+      <yloc>92</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>BibContent</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>BibInstitutionIdFrom001</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>owningInstitutionId</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>owningInstitutionBibId</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>HoldingsTree</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CURR_DATE</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>createDateBib</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>lastUpdatedDateBib</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>BIB_INSTITUTION_ID</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>OWNING_INSTITUTION_BIB_ID</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>BIBLIOGRAPHIC_ID</name>
+        <rename>Scsb BibId</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>750</xloc>
+      <yloc>183</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1917,7 +2381,7 @@
   <step_error_handling>
       <error>
         <source_step>Bib Holdings Table</source_step>
-        <target_step>Bib Holdings Failed Excel Output</target_step>
+        <target_step>Bib Holdings Failed Excel Writer</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename>Err_desc</descriptions_valuename>
@@ -1929,7 +2393,7 @@
       </error>
       <error>
         <source_step>Bib Item Table</source_step>
-        <target_step>Bib Item Failed Excel Output</target_step>
+        <target_step>Bib Items Failed Excel Writer</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename>Err_desc</descriptions_valuename>
@@ -1941,36 +2405,36 @@
       </error>
       <error>
         <source_step>Bib Table</source_step>
-        <target_step>BIb Failed Excel Output</target_step>
+        <target_step>Find Duplicate Bib</target_step>
         <is_enabled>Y</is_enabled>
-        <nr_valuename>Err_nr_field</nr_valuename>
+        <nr_valuename/>
         <descriptions_valuename>Err_desc</descriptions_valuename>
-        <fields_valuename>Err_field</fields_valuename>
-        <codes_valuename>Err_code_field</codes_valuename>
+        <fields_valuename/>
+        <codes_valuename/>
         <max_errors/>
         <max_pct_errors/>
         <min_pct_rows/>
       </error>
       <error>
         <source_step>Holdings Table</source_step>
-        <target_step>Holding Failed Excel Output</target_step>
+        <target_step>Holdings Failed Excel Writer</target_step>
         <is_enabled>Y</is_enabled>
-        <nr_valuename>Err_nr_field</nr_valuename>
+        <nr_valuename/>
         <descriptions_valuename>Err_desc</descriptions_valuename>
-        <fields_valuename>Err _field</fields_valuename>
-        <codes_valuename>Err_code_field</codes_valuename>
+        <fields_valuename/>
+        <codes_valuename/>
         <max_errors/>
         <max_pct_errors/>
         <min_pct_rows/>
       </error>
       <error>
         <source_step>Item Table</source_step>
-        <target_step>Modified Java Script Value</target_step>
+        <target_step>Find Duplicate Item</target_step>
         <is_enabled>Y</is_enabled>
-        <nr_valuename>Err_nr_field</nr_valuename>
+        <nr_valuename/>
         <descriptions_valuename>Err_desc</descriptions_valuename>
-        <fields_valuename>Err_field</fields_valuename>
-        <codes_valuename>Err_code_field</codes_valuename>
+        <fields_valuename/>
+        <codes_valuename/>
         <max_errors/>
         <max_pct_errors/>
         <min_pct_rows/>
