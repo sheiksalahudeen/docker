@@ -40,7 +40,6 @@ RUN mkdir /opt/solr-6.0.1/server/solr/configsets/recap_config && \
     mkdir /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
     cp -R /opt/solr-6.0.1/server/solr/configsets/basic_configs/conf/* /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
     cp -R /opt/solr-6.0.1/server/solr/recap/conf/managed-schema /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
-    cp -R /opt/solr-6.0.1/server/solr/recap/conf/solr-config.xml /opt/solr-6.0.1/server/solr/configsets/recap_config/conf && \
     cp -R /opt/solr-6.0.1/server/solr/recap/conf/lang /opt/solr-6.0.1/server/solr/configsets/recap_config/conf
 
 RUN cp /opt/scsb-solr/src/main/resources/data-config.xml /opt/solr-6.0.1/server/solr/configsets/recap_config/conf
