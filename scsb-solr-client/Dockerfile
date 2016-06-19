@@ -42,6 +42,6 @@ RUN cd /opt/scsb-solr-client && ./gradlew clean build -x test
 RUN ln -s /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-solr-client
 
 ENV JAVA_OPTS="-Dspring.profiles.active=dev"
-ENV JAVA_OPTS="-Xms512m -Xmx4g -XX:MaxPermSize=512m"
+ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx4g -XX:MaxPermSize=512m"
 
 EXPOSE 8080
