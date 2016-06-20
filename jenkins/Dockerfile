@@ -31,3 +31,5 @@ RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget htt
 
 #Install git
 RUN apt-get install -q -y git
+
+ENTRYPOINT service jenkins start && bash
