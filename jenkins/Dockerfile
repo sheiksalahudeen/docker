@@ -9,7 +9,7 @@ RUN wget -q -O -  http://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add
 sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
 sudo apt-get update && \ 
 apt-get install -q -y jenkins
-ENV JENKINS_HOME /var/lib/jenkins/
+ENV JENKINS_HOME /recap-vol/jenkins
 RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git-client/1.19.6/git-client.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/git/2.4.4/git.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/scm-api/1.2/scm-api.hpi
