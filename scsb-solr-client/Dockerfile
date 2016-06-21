@@ -45,3 +45,5 @@ ENV JAVA_OPTS="-Dspring.profiles.active=dev"
 ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx4g -XX:MaxPermSize=512m"
 
 EXPOSE 8080
+
+ENTRYPOINT /etc/init.d/scsb-solr-client start
