@@ -926,8 +926,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to/>
-<send_false_to/>
+<send_true_to>Bib Table Lookup</send_true_to>
+<send_false_to>Bibs Failed Excel Writer</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -955,8 +955,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to/>
-<send_false_to/>
+<send_true_to>BoundWithItem Excel Report</send_true_to>
+<send_false_to>Items Failed Excel Writer</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
