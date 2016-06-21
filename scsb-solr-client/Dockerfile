@@ -39,7 +39,7 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 RUN mkdir /opt/scsb-solr-client
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/scsb-solr-client.git /opt/scsb-solr-client
 RUN cd /opt/scsb-solr-client && ./gradlew clean build -x test
-RUN ln -s /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-solr-client
+RUN sudo ln -s /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-solr-client
 
 ENV JAVA_OPTS="-Dspring.profiles.active=dev"
 ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx4g -XX:MaxPermSize=512m"
