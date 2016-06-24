@@ -44,6 +44,6 @@ RUN sudo ln -s /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar /etc/init.d/
 ENV JAVA_OPTS="-Dspring.profiles.active=dev"
 ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx4g -XX:MaxPermSize=512m"
 
-EXPOSE 8080
+EXPOSE 9094
 
 ENTRYPOINT java -jar -Dspring.profiles.active=dev /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
