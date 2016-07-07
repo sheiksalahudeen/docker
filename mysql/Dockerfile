@@ -28,6 +28,9 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
+#Set EST Timezone
+RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
 #Add my.cnf
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
