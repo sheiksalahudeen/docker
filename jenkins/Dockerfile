@@ -73,8 +73,9 @@ unzip gradle-${GRADLE_VERSION}-all.zip
 ENV GRADLE_HOME /opt/gradle/gradle-2.6
 ENV PATH $PATH:$GRADLE_HOME/bin
 
-
-
 ENV JENKINS_HOME /recap-vol/jenkins
+
+#Set EST Timezone
+RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
 ENTRYPOINT service jenkins start && bash
