@@ -21,6 +21,8 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
+#Set EST Timezone
+RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
 #Install Gradle
 ENV GRADLE_VERSION 2.6
