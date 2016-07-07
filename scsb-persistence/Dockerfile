@@ -43,5 +43,8 @@ RUN ln -s /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar /
 
 ENV JAVA_OPTS="-Dspring.profiles.active=dev"
 
+#Set EST Timezone
+RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
 EXPOSE 9090
 
