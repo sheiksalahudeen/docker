@@ -22,6 +22,9 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
+#Set EST Timezone
+RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
 #Install Solr
 RUN curl http://archive.apache.org/dist/lucene/solr/6.0.1/solr-6.0.1.tgz | tar -C /opt/ --extract --gzip
 
