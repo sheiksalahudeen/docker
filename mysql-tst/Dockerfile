@@ -30,7 +30,7 @@ RUN echo ${JAVA_HOME}
 
 #Add my.cnf
 RUN mkdir /opt/git
-RUN git clone https://github.com/premkumarbalu/docker.git /opt/git/
+RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
 RUN cp /opt/git/mysql-tst/my.cnf /etc/mysql/
 
 EXPOSE 3307
