@@ -38,5 +38,15 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /
 
 EXPOSE 3306
 
-#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+#Add my.cnf
+RUN mkdir /opt/git
+RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
+RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+
+EXPOSE 3306
+
+RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
+    sleep 5 && \
+    mysql -uroot < /opt/git/mysql/6_ALLOW_CONTAINER_LINKING.sql
+	
 #ENTRYPOINT /usr/bin/mysqld_safe
