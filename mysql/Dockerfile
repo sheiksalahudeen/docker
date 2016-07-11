@@ -36,7 +36,7 @@ RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
 
-RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 
 RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
 sleep 5 && \
