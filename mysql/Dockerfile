@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
 
+RUN export TERM=xterm
 
 ### Basic Configuration 
 RUN apt-get -q update
