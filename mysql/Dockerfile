@@ -37,5 +37,5 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /
 
 EXPOSE 3306
 
-RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 #ENTRYPOINT /usr/bin/mysqld_safe
