@@ -41,7 +41,7 @@ EXPOSE 3306
 #Add my.cnf
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
-RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 
 EXPOSE 3306
 
