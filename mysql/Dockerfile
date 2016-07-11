@@ -34,7 +34,7 @@ RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 #Add my.cnf
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
-RUN cp /opt/git/mysql/my.cnf /etc/mysql/
+#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 
 EXPOSE 3306
 
