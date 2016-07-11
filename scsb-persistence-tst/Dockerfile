@@ -41,12 +41,12 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/scsb-persist
 RUN cd /opt/scsb-persistence && ./gradlew clean build -x test
 RUN ln -s /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-solr-persistence
 
-ENV JAVA_OPTS="-Dspring.profiles.active=dev"
+ENV JAVA_OPTS="-Dspring.profiles.active=tst"
 
 #Set EST Timezone
 RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
-EXPOSE 9092
+EXPOSE 9093
 
-ENTRYPOINT java -jar -Dspring.profiles.active=dev /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -Dspring.profiles.active=tst /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
 
