@@ -37,6 +37,6 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /
 
 EXPOSE 3306
 
-RUN -v /data:/recap-vol/ cp /var/lib/mysql /recap-vol/mysql-dev-data/mysql
+RUN -v /data:/recap-vol/ cp /var/lib/mysql /recap-vol/mysql-dev-data
 RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 #ENTRYPOINT /usr/bin/mysqld_safe
