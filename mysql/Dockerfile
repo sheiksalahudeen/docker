@@ -48,5 +48,3 @@ sleep 5 && \
  mysql -uroot < /opt/git/mysql/6_ALLOW_CONTAINER_LINKING.sql
 	
 ENTRYPOINT /usr/bin/mysqld_safe
-
-EXPOSE 3306
