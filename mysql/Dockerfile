@@ -19,7 +19,7 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /
 RUN cp /opt/git/mysql/startup.sh /opt/startup.sh && \
     chmod 777 /opt/startup.sh
 
-ENTRYPOINT ["cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf & /opt/startup.sh"]
+ENTRYPOINT ["/opt/startup.sh"]
 
 
 
