@@ -9,7 +9,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	mysql_install_db
 		
 	echo "Run mysql"
-	/usr/bin/mysqld_safe --defaults-file="/etc/mysql/my.cnf" & sleep 10s
+	/usr/bin/mysqld_safe & sleep 10s
 
 	mysql -uroot < /opt/git/mysql/1_SCHEMA_TABLES_CREATION.sql
     	mysql -uroot < /opt/git/mysql/2_COLLECTION_GROUP_T.sql
