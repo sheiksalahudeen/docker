@@ -8,8 +8,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	sleep 10s
 
 	echo "GRANT ALL ON *.* to etl@'%' IDENTIFIED BY 'etl', recap@'%' IDENTIFIED BY 'recap'; FLUSH PRIVILEGES;" | mysql
-
-	killall mysqld
+	
 	sleep 10s
 fi
 
