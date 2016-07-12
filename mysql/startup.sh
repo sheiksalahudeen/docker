@@ -7,7 +7,8 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	mysql_install_db
 		
 	echo "Run mysql"
-	/usr/bin/mysqld_safe & 
+	/usr/bin/mysqld_safe & sleep 10
+
 	echo "GRANT ALL ON *.* to etl@'%' IDENTIFIED BY 'etl', recap@'%' IDENTIFIED BY 'recap'; FLUSH PRIVILEGES;" | mysql
 
 fi
