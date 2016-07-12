@@ -31,4 +31,3 @@ fi
 	echo "DB already initialized; Starting MySQL"
 	/usr/bin/mysqld_safe & tail -f /dev/null
 
-
