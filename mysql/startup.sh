@@ -1,10 +1,8 @@
 #!/bin/bash
 
-cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf
-
 if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	echo "Copying default my.cnf to /usr/share/ folder"
-	cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf
+	cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf
 		
 	echo "Initialize mysql db"
 	mysql_install_db
