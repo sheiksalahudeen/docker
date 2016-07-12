@@ -7,6 +7,8 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 		
 	echo "Initialize mysql db"
 	mysql_install_db
+	
+	service mysql start & tail /dev/null
 fi
 
 
