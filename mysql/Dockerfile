@@ -18,7 +18,8 @@ RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /
 
 RUN cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf
 
-RUN cp /opt/git/mysql/startup.sh /opt/startup.sh
+RUN cp /opt/git/mysql/startup.sh /opt/startup.sh && \
+    chmod 777 /opt/startup.sh
 
 CMD ["/bin/bash", "/opt/startup.sh"]
 
