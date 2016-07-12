@@ -20,6 +20,6 @@ RUN cp /opt/git/mysql/startup.sh /opt/startup.sh && \
     chmod 777 /opt/startup.sh
 
 #ENTRYPOINT ["/opt/startup.sh"]
-ENTRYPOINT ["/usr/bin/mysqld_safe"]
+ENTRYPOINT /usr/bin/mysqld_safe
 
 
