@@ -4,7 +4,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	echo "Copying default my.cnf to /usr/share/ folder"
 	cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf
 	cp /opt/git/mysql/my.cnf /etc/mysql/my.cnf
-	cp /opt/git/mysql/my.cnf /etc/my.cnf
+	cp /opt/git/mysql/my.cnf ~/.my.cnf
 		
 	echo "Initialize mysql db"
 	mysql_install_db
@@ -25,7 +25,7 @@ fi
 	echo "Copying default my.cnf to /usr/share/ folder"
 	cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf
 	cp /opt/git/mysql/my.cnf /etc/mysql/my.cnf
-	cp /opt/git/mysql/my.cnf /etc/my.cnf
+	cp /opt/git/mysql/my.cnf ~/.my.cnf
 
 
 	echo "DB already initialized; Starting MySQL"
