@@ -21,7 +21,7 @@ RUN cp /opt/git/mysql/my.cnf /usr/share/mysql/my-default.cnf
 RUN cp /opt/git/mysql/startup.sh /opt/startup.sh && \
     chmod 777 /opt/startup.sh
 
-CMD ["/opt/startup.sh"]
+ENTRYPOINT ["/opt/startup.sh"]
 
 
 
