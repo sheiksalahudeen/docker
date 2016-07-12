@@ -16,10 +16,12 @@ RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN mkdir /opt/git
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/docker.git /opt/git/
 
-RUN cp /opt/git/mysql/startup.sh /opt/startup.sh && \
-    chmod 777 /opt/startup.sh
+#RUN cp /opt/git/mysql/my.cnf /etc/mysql/
 
-ENTRYPOINT ["/opt/startup.sh"]
+#RUN cp /opt/git/mysql/startup.sh /opt/startup.sh && \
+ #   chmod 777 /opt/startup.sh
 
+#ENTRYPOINT ["/opt/startup.sh"]
+ENTRYPOINT /usr/bin/mysqld_safe
 
 
