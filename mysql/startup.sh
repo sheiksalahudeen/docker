@@ -13,5 +13,3 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	sleep 10s
 fi
 
-/usr/bin/mysqld_safe
-
