@@ -13,7 +13,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`INSTITUTION_T` (
   `INSTITUTION_CODE` VARCHAR(45) NOT NULL ,
   `INSTITUTION_NAME` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`INSTITUTION_ID`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -30,7 +32,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_T` (
   `OWNING_INST_BIB_ID` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`OWNING_INST_ID`, `OWNING_INST_BIB_ID`) ,
   KEY `BIBLIOGRAPHIC_ID` (`BIBLIOGRAPHIC_ID`),
-  INDEX `BIBLIOGRAPHIC_OWNING_INST_ID_FK` (`OWNING_INST_ID` ASC) ,
   CONSTRAINT `BIBLIOGRAPHIC_OWNING_INST_ID_FK`
     FOREIGN KEY (`OWNING_INST_ID` )
     REFERENCES `recap`.`INSTITUTION_T` (`INSTITUTION_ID` )
@@ -66,7 +67,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_STATUS_T` (
   `STATUS_CODE` VARCHAR(45) NOT NULL ,
   `STATUS_DESC` VARCHAR(2000) NOT NULL ,
   PRIMARY KEY (`ITEM_STATUS_ID`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -79,7 +82,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`COLLECTION_GROUP_T` (
   `CREATED_DATE` DATETIME NOT NULL ,
   `LAST_UPDATED_DATE` DATETIME NULL ,
   PRIMARY KEY (`COLLECTION_GROUP_ID`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -108,8 +113,8 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_T` (
   KEY `ITEM_ID` (`ITEM_ID`),
   INDEX `HOLDINGS_ID_FK_idx` (`HOLDINGS_ID` ASC) ,
   INDEX `ITEM_AVAIL_STATUS_ID_FK_idx` (`ITEM_AVAIL_STATUS_ID` ASC) ,
-  INDEX `OWNING_INST_FK_idx` (`OWNING_INST_ID` ASC) ,
   INDEX `COLLECTION_TYPE_FK_idx` (`COLLECTION_GROUP_ID` ASC) ,
+  INDEX `BAR_CODE_idx` (`BAR_CODE` ASC) ,
   CONSTRAINT `ITEM_HOLDINGS_ID_FK`
     FOREIGN KEY (`HOLDINGS_ID` )
     REFERENCES `recap`.`HOLDINGS_T` (`HOLDINGS_ID` )
@@ -143,7 +148,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_TYPE_T` (
   `REQUEST_TYPE_CODE` VARCHAR(45) NOT NULL ,
   `REQUEST_TYPE_DESC` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`REQUEST_TYPE_ID`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -160,7 +167,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`PATRON_T` (
     REFERENCES `recap`.`INSTITUTION_T` (`INSTITUTION_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -196,7 +205,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_ITEM_T` (
     REFERENCES `recap`.`PATRON_T` (`PATRON_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -246,7 +257,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`LOAN_T` (
     REFERENCES `recap`.`PATRON_T` (`PATRON_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -259,7 +272,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`AUDIT_T` (
   `VALUE` BLOB NOT NULL ,
   `DATE_TIME_UPDATED` DATETIME NOT NULL ,
   PRIMARY KEY (`AUDIT_ID`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -283,7 +298,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`NOTES_T` (
     REFERENCES `recap`.`REQUEST_ITEM_T` (`REQUEST_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -308,7 +325,9 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_TRACKING_INFO_T` (
     REFERENCES `recap`.`ITEM_T` (`ITEM_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
