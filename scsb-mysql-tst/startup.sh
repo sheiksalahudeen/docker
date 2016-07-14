@@ -11,7 +11,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	echo "Run mysql"
 	/usr/bin/mysqld_safe & sleep 10s
 
-	mysql -uroot < /opt/git/mysql/1_SCHEMA_TABLES_CREATION.sql
+	mysql -uroot < /opt/git/scsb-mysql-dev/1_SCHEMA_TABLES_CREATION.sql
     	mysql -uroot < /opt/git/scsb-mysql-dev/2_COLLECTION_GROUP_T.sql
     	mysql -uroot < /opt/git/scsb-mysql-dev/3_INSTITUTION_T.sql
     	mysql -uroot < /opt/git/scsb-mysql-dev/4_ITEM_STATUS_T.sql
