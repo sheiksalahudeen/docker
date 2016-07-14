@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
 
 ### Basic Configuration 
@@ -6,11 +6,12 @@ RUN apt-get -q update
 RUN apt-get install -q -y software-properties-common wget curl
 RUN apt-get install -qq -y git vim zip
 
-RUN wget -q -O -  http://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add - && \
+RUN wget -q -O -  http://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && \
 sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
-
-sudo apt-get update && \ 
+apt-get update && \
 apt-get install -q -y jenkins
+
+
 
 RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git-client/1.19.6/git-client.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/git/2.4.4/git.hpi && \
@@ -27,30 +28,17 @@ wget http://updates.jenkins-ci.org/download/plugins/mailer/1.17/mailer.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/maven-plugin/2.13/maven-plugin.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/cobertura/1.9.8/cobertura.hpi
 
-#RUN mkdir /var/lib/jenkins/plugins
-#RUN cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git-client/1.19.6/git-client.hpi
-#RUN cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/git/2.4.4/git.hpi
-#RUN cd /var/lib/jenkins/plugins && wget http://updates.jenkins-ci.org/download/plugins/scm-api/1.2/scm-api.hpi
-
-#Install jdk1.8.x
 RUN wget \
     --no-cookies \
     --no-check-certificate \
     --header "Cookie: oraclelicense=accept-securebackup-cookie" \
     -qO- \
-    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | sudo tar -zx -C /opt/
+    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | tar -zx -C /opt/
 
 ENV JAVA_HOME /opt/jdk1.8.0_51
 ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
-
-#Install Maven 3.3.3
-RUN curl http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz | tar -C /opt/ --extract --gzip
-
-ENV MAVEN_HOME /opt/apache-maven-3.3.3
-
-ENV PATH $MAVEN_HOME/bin:$PATH
 
 #Intall Gradle Plugin
 RUN service jenkins start && sleep 10 && cd /var/lib/jenkins/plugins && wget https://updates.jenkins-ci.org/download/plugins/gradle/1.24/gradle.hpi
@@ -73,9 +61,9 @@ unzip gradle-${GRADLE_VERSION}-all.zip
 ENV GRADLE_HOME /opt/gradle/gradle-2.6
 ENV PATH $PATH:$GRADLE_HOME/bin
 
-ENV JENKINS_HOME /recap-vol/jenkins
-
 #Set EST Timezone
 RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
-ENTRYPOINT service jenkins start && bash
+EXPOSE 8080:8080
+
+ENTRYPOINT service jenkins start && tail -f /dev/null
