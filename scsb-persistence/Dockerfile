@@ -48,5 +48,5 @@ RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
 EXPOSE 9092
 
-ENTRYPOINT java -jar -Dspring.profiles.active=dev /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -XX:+HeapDumpOnOutOfMemoryError -Dspring.profiles.active=dev /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
 
