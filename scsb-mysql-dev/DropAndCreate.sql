@@ -159,7 +159,19 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
-
+DROP TABLE IF EXISTS `recap`.`XML_RECORDS_T`;
+-- -----------------------------------------------------
+-- Table `recap`.`XML_RECORDS_T`
+-- -----------------------------------------------------
+CREATE TABLE  IF NOT EXISTS `recap`.`XML_RECORDS_T` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `XML_RECORD` LONGBLOB NOT NULL,
+  `XML_FILE` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB
+AUTO_INCREMENT=9
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
