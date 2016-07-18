@@ -44,8 +44,8 @@ RUN cd /opt/scsb-etl && ./gradlew clean build -x test
 RUN sudo ln -s /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-etl
 
 ENV JAVA_OPTS="-Dspring.profiles.active=tst"
-ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx8g -XX:MaxPermSize=512m"
+ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx4g -XX:MaxPermSize=512m"
 
 EXPOSE 9095
 
-ENTRYPOINT java -jar -Xms512m -Xmx8g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*" -Dspring.profiles.active=tst /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -Xms512m -Xmx4g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*" -Dspring.profiles.active=tst /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
