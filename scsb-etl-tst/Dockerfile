@@ -48,4 +48,4 @@ ENV JAVA_OPTS="-Dspring.profiles.active=tst"
 
 EXPOSE 9095
 
-ENTRYPOINT java -jar -XX:+HeapDumpOnOutOfMemoryError -Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*" -Dspring.profiles.active=tst /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -Xms512m -Xmx6g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*" -Dspring.profiles.active=tst /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
