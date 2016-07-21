@@ -46,4 +46,10 @@ RUN sudo ln -s /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.
 ENV JAVA_OPTS="-Dspring.profiles.active=dev"
 ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx4g -XX:MaxPermSize=512m"
 
+#Set Locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 ENTRYPOINT java -jar -XX:+HeapDumpOnOutOfMemoryError -Dspring.profiles.active=dev /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.jar && bash

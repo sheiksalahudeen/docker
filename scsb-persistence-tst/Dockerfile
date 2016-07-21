@@ -46,6 +46,12 @@ ENV JAVA_OPTS="-Dspring.profiles.active=tst"
 #Set EST Timezone
 RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
+#Set Locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 EXPOSE 9093
 
 ENTRYPOINT java -jar -XX:+HeapDumpOnOutOfMemoryError -Dspring.profiles.active=tst /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
