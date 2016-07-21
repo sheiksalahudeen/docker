@@ -46,6 +46,12 @@ RUN sudo ln -s /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar /etc/init.d/
 ENV JAVA_OPTS="-Dspring.profiles.active=tst"
 #ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx6g -XX:MaxPermSize=512m"
 
+#Set Locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 EXPOSE 9095
 
 ENTRYPOINT java -jar -Xms512m -Xmx6g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*" -Dspring.profiles.active=tst /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
