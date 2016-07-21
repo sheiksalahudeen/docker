@@ -13,7 +13,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`INSTITUTION_T` (
   `INSTITUTION_CODE` VARCHAR(45) NOT NULL ,
   `INSTITUTION_NAME` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`INSTITUTION_ID`) )
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`BIBLIOGRAPHIC_T`
@@ -34,7 +34,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_T` (
     REFERENCES `recap`.`INSTITUTION_T` (`INSTITUTION_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -50,7 +50,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`HOLDINGS_T` (
   `OWNING_INST_HOLDINGS_ID` VARCHAR(100) NOT NULL ,
    KEY `HOLDINGS_ID` (`HOLDINGS_ID`),
   PRIMARY KEY (`OWNING_INST_HOLDINGS_ID`) )
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`ITEM_STATUS_T`
@@ -60,7 +60,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_STATUS_T` (
   `STATUS_CODE` VARCHAR(45) NOT NULL ,
   `STATUS_DESC` VARCHAR(2000) NOT NULL ,
   PRIMARY KEY (`ITEM_STATUS_ID`) )
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -73,7 +73,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`COLLECTION_GROUP_T` (
   `CREATED_DATE` DATETIME NOT NULL ,
   `LAST_UPDATED_DATE` DATETIME NULL ,
   PRIMARY KEY (`COLLECTION_GROUP_ID`) )
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -123,7 +123,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_T` (
     REFERENCES `recap`.`COLLECTION_GROUP_T` (`COLLECTION_GROUP_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`REQUEST_TYPE_T`
@@ -133,7 +133,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_TYPE_T` (
   `REQUEST_TYPE_CODE` VARCHAR(45) NOT NULL ,
   `REQUEST_TYPE_DESC` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`REQUEST_TYPE_ID`) )
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`PATRON_T`
@@ -149,7 +149,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`PATRON_T` (
     REFERENCES `recap`.`INSTITUTION_T` (`INSTITUTION_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -185,7 +185,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_ITEM_T` (
     REFERENCES `recap`.`PATRON_T` (`PATRON_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -206,7 +206,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_HOLDINGS_T` (
     REFERENCES `recap`.`BIBLIOGRAPHIC_T` (`OWNING_INST_ID` , `OWNING_INST_BIB_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`LOAN_T`
@@ -229,7 +229,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`LOAN_T` (
     REFERENCES `recap`.`PATRON_T` (`PATRON_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -242,7 +242,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`AUDIT_T` (
   `VALUE` BLOB NOT NULL ,
   `DATE_TIME_UPDATED` DATETIME NOT NULL ,
   PRIMARY KEY (`AUDIT_ID`) )
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`NOTES_T`
@@ -265,7 +265,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`NOTES_T` (
     REFERENCES `recap`.`REQUEST_ITEM_T` (`REQUEST_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -290,7 +290,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_TRACKING_INFO_T` (
     REFERENCES `recap`.`ITEM_T` (`ITEM_ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -312,7 +312,7 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_ITEM_T` (
     REFERENCES `recap`.`ITEM_T` (`OWNING_INST_ID` , `OWNING_INST_ITEM_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `recap`.`XML_RECORDS_T`
@@ -328,7 +328,7 @@ CREATE TABLE  IF NOT EXISTS `recap`.`XML_RECORDS_T` (
   INDEX (`XML_FILE`),
   INDEX (`OWNING_INST_BIB_ID`),
   INDEX (`OWNING_INST`)
-) ENGINE=InnoDB
+) ENGINE=InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
