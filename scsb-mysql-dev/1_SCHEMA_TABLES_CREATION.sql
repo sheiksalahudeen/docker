@@ -2,7 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `recap` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `recap`;
 USE `recap` ;
 
 -- -----------------------------------------------------
@@ -14,9 +14,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`INSTITUTION_T` (
   `INSTITUTION_NAME` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`INSTITUTION_ID`) )
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
 
 -- -----------------------------------------------------
 -- Table `recap`.`BIBLIOGRAPHIC_T`
@@ -38,8 +35,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -52,13 +47,10 @@ CREATE  TABLE IF NOT EXISTS `recap`.`HOLDINGS_T` (
   `CREATED_BY` VARCHAR(45) NOT NULL ,
   `LAST_UPDATED_DATE` DATETIME NOT NULL ,
   `LAST_UPDATED_BY` VARCHAR(45) NOT NULL ,
-  `OWNING_INST_HOLDINGS_ID` VARCHAR(100) NULL ,
+  `OWNING_INST_HOLDINGS_ID` VARCHAR(100) NOT NULL ,
    KEY `HOLDINGS_ID` (`HOLDINGS_ID`),
   PRIMARY KEY (`OWNING_INST_HOLDINGS_ID`) )
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
 
 -- -----------------------------------------------------
 -- Table `recap`.`ITEM_STATUS_T`
@@ -69,8 +61,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_STATUS_T` (
   `STATUS_DESC` VARCHAR(2000) NOT NULL ,
   PRIMARY KEY (`ITEM_STATUS_ID`) )
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -84,8 +74,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`COLLECTION_GROUP_T` (
   `LAST_UPDATED_DATE` DATETIME NULL ,
   PRIMARY KEY (`COLLECTION_GROUP_ID`) )
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -136,9 +124,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
 
 -- -----------------------------------------------------
 -- Table `recap`.`REQUEST_TYPE_T`
@@ -149,9 +134,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_TYPE_T` (
   `REQUEST_TYPE_DESC` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`REQUEST_TYPE_ID`) )
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
 
 -- -----------------------------------------------------
 -- Table `recap`.`PATRON_T`
@@ -168,8 +150,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`PATRON_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -206,8 +186,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`REQUEST_ITEM_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -229,8 +207,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_HOLDINGS_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------
 -- Table `recap`.`LOAN_T`
@@ -254,8 +230,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`LOAN_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -269,9 +243,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`AUDIT_T` (
   `DATE_TIME_UPDATED` DATETIME NOT NULL ,
   PRIMARY KEY (`AUDIT_ID`) )
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
 
 -- -----------------------------------------------------
 -- Table `recap`.`NOTES_T`
@@ -295,8 +266,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`NOTES_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -322,8 +291,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`ITEM_TRACKING_INFO_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -346,8 +313,6 @@ CREATE  TABLE IF NOT EXISTS `recap`.`BIBLIOGRAPHIC_ITEM_T` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------
 -- Table `recap`.`XML_RECORDS_T`
@@ -364,10 +329,6 @@ CREATE TABLE  IF NOT EXISTS `recap`.`XML_RECORDS_T` (
   INDEX (`OWNING_INST_BIB_ID`),
   INDEX (`OWNING_INST`)
 ) ENGINE=InnoDB
-AUTO_INCREMENT=9
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_unicode_ci;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
