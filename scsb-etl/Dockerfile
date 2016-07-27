@@ -16,6 +16,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #Set Terminal
 ENV TERM=xterm
 
+
+### Basic Configuration
+RUN apt-get -q update
+RUN apt-get install -q -y software-properties-common wget curl
+
 RUN apt-get install -qq -y git vim zip
 
 #Install jdk1.8.x
