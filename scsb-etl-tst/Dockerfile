@@ -1,5 +1,17 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+
+ENV TERM=xterm
+
+#Set Locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+#Set EST Timezone
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
 ### Basic Configuration 
@@ -14,15 +26,13 @@ RUN wget \
     --no-check-certificate \
     --header "Cookie: oraclelicense=accept-securebackup-cookie" \
     -qO- \
-    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | sudo tar -zx -C /opt/
+    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | tar -zx -C /opt/
 
 ENV JAVA_HOME /opt/jdk1.8.0_51
 ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN echo ${JAVA_HOME}
 
-#Set EST Timezone
-RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
 #Install Gradle
 ENV GRADLE_VERSION 2.6
@@ -41,17 +51,8 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 RUN mkdir /opt/scsb-etl
 RUN git clone https://github.com/ResearchCollectionsAndPreservation/scsb-etl.git /opt/scsb-etl
 RUN cd /opt/scsb-etl && ./gradlew clean build -x test
-RUN sudo ln -s /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-etl
-
-ENV JAVA_OPTS="-Dspring.profiles.active=tst"
-#ENV JAVA_OPTS="$JAVA_OPTS -Xms512m -Xmx6g -XX:MaxPermSize=512m"
-
-#Set Locale
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+RUN ln -s /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-etl
 
 EXPOSE 9095
 
-ENTRYPOINT java -jar -Xms512m -Xmx6g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*" -Dspring.profiles.active=tst /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java  -Denvironment=$ENV -jar /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
