@@ -57,4 +57,4 @@ RUN ln -s /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-
 
 EXPOSE 9094
 
-ENTRYPOINT java -jar -Denvironment=ENV /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -Denvironment=$ENV /opt/scsb-etl/build/libs/scsb-etl-0.0.1-SNAPSHOT.jar && bash
