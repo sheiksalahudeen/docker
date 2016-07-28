@@ -52,4 +52,4 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-ENTRYPOINT java -jar -XX:+HeapDumpOnOutOfMemoryError -Dspring.profiles.active=dev /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -Denvironment=$ENV /opt/scsb-solr-client/build/libs/scsb-solr-client-0.0.1-SNAPSHOT.jar && bash
