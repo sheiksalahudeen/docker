@@ -54,5 +54,5 @@ ENV LC_ALL en_US.UTF-8
 
 EXPOSE 9092
 
-ENTRYPOINT java -jar -XX:+HeapDumpOnOutOfMemoryError -Dspring.profiles.active=dev /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
+ENTRYPOINT java -jar -Denvironment=$ENV /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar && bash
 
