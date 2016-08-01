@@ -1,6 +1,20 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
 
+ENV TERM=xterm
+
+#Set Locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+#Set EST Timezone
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+#Set Terminal
+ENV TERM=xterm
 
 ### Basic Configuration 
 RUN apt-get -q update
@@ -14,7 +28,7 @@ RUN wget \
     --no-check-certificate \
     --header "Cookie: oraclelicense=accept-securebackup-cookie" \
     -qO- \
-    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | sudo tar -zx -C /opt/
+    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | tar -zx -C /opt/
 
 ENV JAVA_HOME /opt/jdk1.8.0_51
 ENV PATH $JAVA_HOME/bin:$PATH
@@ -43,14 +57,6 @@ RUN ln -s /opt/scsb-persistence/build/libs/scsb-persistence-0.0.1-SNAPSHOT.jar /
 
 ENV JAVA_OPTS="-Dspring.profiles.active=dev"
 
-#Set EST Timezone
-RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-
-#Set Locale
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
 
 EXPOSE 9092
 
