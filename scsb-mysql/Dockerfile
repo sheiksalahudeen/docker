@@ -4,8 +4,9 @@ MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
 #Set Terminal
 ENV TERM=xterm
 
-#Set EST Timezone
-RUN ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 
 #Add my.cnf
 
