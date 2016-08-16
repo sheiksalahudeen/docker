@@ -5,6 +5,35 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 CREATE SCHEMA IF NOT EXISTS `recap`;
 USE `recap` ;
 
+DROP TABLE IF EXISTS `recap`.`REPORT_T`;
+-- -----------------------------------------------------
+-- Table `recap`.`REPORT_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `REPORT_T` (
+  `RECORD_NUM`    INT  NOT NULL AUTO_INCREMENT,
+  `FILE_NAME`     VARCHAR(45) NOT NULL,
+  `TYPE`          VARCHAR(45) NOT NULL,
+  `CREATED_DATE`  DATETIME    NOT NULL,
+  PRIMARY KEY (`RECORD_NUM`)
+)
+  ENGINE = InnoDB;
+
+
+DROP TABLE IF EXISTS `recap`.`REPORT_DATA_T`;
+-- -----------------------------------------------------
+-- Table `recap`.`REPORT_DATA_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `REPORT_DATA_T` (
+  `REPORT_DATA_ID` INT         NOT NULL AUTO_INCREMENT,
+  `HEADER_NAME`    VARCHAR(100) NOT NULL,
+  `HEADER_VALUE`   VARCHAR(4000) NOT NULL,
+  `RECORD_NUM`     INT         NULL,
+  PRIMARY KEY (`REPORT_DATA_ID`)
+)
+  ENGINE = InnoDB;
+
+
+
 DROP TABLE IF EXISTS `recap`.`BIBLIOGRAPHIC_T`;
 -- -----------------------------------------------------
 -- Table `recap`.`BIBLIOGRAPHIC_T`
