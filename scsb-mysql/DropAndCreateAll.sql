@@ -75,7 +75,7 @@ DROP TABLE IF EXISTS `recap`.`HOLDINGS_T`;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `HOLDINGS_T` (
   `HOLDINGS_ID`             INT          NOT NULL AUTO_INCREMENT,
-  `CONTENT`                 BLOB         NOT NULL,
+  `CONTENT`                 LONGBLOB         NOT NULL,
   `CREATED_DATE`            DATETIME     NOT NULL,
   `CREATED_BY`              VARCHAR(45)  NOT NULL,
   `LAST_UPDATED_DATE`       DATETIME     NOT NULL,
