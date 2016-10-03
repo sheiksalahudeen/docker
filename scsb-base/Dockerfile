@@ -18,7 +18,7 @@ ENV TERM=xterm
 
 
 ### Basic Configuration
-RUN apt-get -q update
+RUN apt-get -q update --fix-missing
 RUN apt-get install -q -y software-properties-common wget curl
 
 RUN apt-get install -qq -y git vim zip

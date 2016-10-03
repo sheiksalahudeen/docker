@@ -1,4 +1,4 @@
-FROM solr-base:latest
+FROM scsb/solr-base:latest
 MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
 
 #Add SCSB-SOLR files

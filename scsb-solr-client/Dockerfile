@@ -1,4 +1,4 @@
-FROM scsb-base:latest
+FROM scsb/scsb-base:latest
 MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
 
 #Checkout scsb-solr-client
