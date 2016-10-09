@@ -17,4 +17,6 @@ RUN mkdir /opt/solr-6.0.1/server/solr/configsets/recap_config && \
      cp -R /opt/solr-6.0.1/server/solr/recap/conf/lang /opt/solr-6.0.1/server/solr/configsets/recap_config/conf
 RUN cp /opt/scsb-solr/src/main/resources/temp/solrconfig.xml /opt/solr-6.0.1/server/solr/configsets/recap_config/conf
 
-ENTRYPOINT /opt/solr-6.0.1/bin/solr start -f
+RUN echo 'SOLR_OPTS="$SOLR_OPTS -Dsolr.log=/var/data/solr-logs"' >> /opt/solr-6.0.1/bin/solr.in.sh
+
+ENTRYPOINT /opt/solr-6.0.1/bin/solr start
