@@ -19,4 +19,4 @@ RUN cp /opt/scsb-solr/src/main/resources/temp/solrconfig.xml /opt/solr-6.0.1/ser
 
 RUN echo 'SOLR_OPTS="$SOLR_OPTS -Dsolr.log=/var/data/solr-logs"' >> /opt/solr-6.0.1/bin/solr.in.sh
 
-ENTRYPOINT /opt/solr-6.0.1/bin/solr start -f
+ENTRYPOINT /opt/solr-6.0.1/bin/solr start -m 8g -f
