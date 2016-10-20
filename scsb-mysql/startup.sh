@@ -15,6 +15,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/6_REQUEST_TYPE_T.sql
         mysql -uroot < /opt/git/mysql/7_ALLOW_CONTAINER_LINKING.sql
         mysql -uroot < /opt/git/mysql/8_SET_TIME_ZONE.sql
+        mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
 
         	killall mysqld
 
