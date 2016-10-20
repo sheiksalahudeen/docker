@@ -19,6 +19,7 @@ COPY 4_INSTITUTION_T.sql /opt/git/mysql/4_INSTITUTION_T.sql
 COPY 5_ITEM_STATUS_T.sql /opt/git/mysql/5_ITEM_STATUS_T.sql
 COPY 6_REQUEST_TYPE_T.sql /opt/git/mysql/6_REQUEST_TYPE_T.sql
 COPY 7_ALLOW_CONTAINER_LINKING.sql /opt/git/mysql/7_ALLOW_CONTAINER_LINKING.sql
+COPY 9_CUSTOMER_CODE_T.sql /opt/git/mysql/9_CUSTOMER_CODE_T.sql
 
 ENTRYPOINT ["/opt/startup.sh"]
 
