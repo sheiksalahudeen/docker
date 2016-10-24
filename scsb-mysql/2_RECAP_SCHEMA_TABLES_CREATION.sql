@@ -439,14 +439,14 @@ CREATE TABLE IF NOT EXISTS `CUSTOMER_CODE_T` (
 -- -----------------------------------------------------
 -- Table `CHANGE_LOG_T`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CHANGE_LOG_T` (
-  `CHANGE_LOG_ID` 	INT 		        NOT NULL AUTO_INCREMENT,
-  `UPDATED_BY` 		  VARCHAR(45) 	  NULL,
-  `UPDATED_DATE` 	  DATETIME 		    NULL,
-  `OPERATION_TYPE` 	VARCHAR(200) 	  NULL,
-  `RECORD_ID` 		  INT 			      NULL,
-  `NOTES` 			    VARCHAR(2000) 	NULL,
-  PRIMARY KEY (`CHANGE_LOG_ID`),
+CREATE TABLE IF NOT EXISTS `ITEM_CHANGE_LOG_T` (
+  `ITEM_CHANGE_LOG_ID` 	INT 		        NOT NULL AUTO_INCREMENT,
+  `UPDATED_BY` 		      VARCHAR(45) 	  NULL,
+  `UPDATED_DATE` 	      DATETIME 		    NULL,
+  `OPERATION_TYPE` 	    VARCHAR(200) 	  NULL,
+  `RECORD_ID` 		      INT 			      NULL,
+  `NOTES` 			        VARCHAR(2000) 	NULL,
+  PRIMARY KEY (`ITEM_CHANGE_LOG_ID`),
   INDEX (`UPDATED_BY`),
   INDEX (`UPDATED_DATE`),
   INDEX (`OPERATION_TYPE`),
