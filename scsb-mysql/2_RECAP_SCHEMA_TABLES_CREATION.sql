@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `CUSTOMER_CODE_T` (
   ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `CHANGE_LOG_T`
+-- Table `ITEM_CHANGE_LOG_T`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ITEM_CHANGE_LOG_T` (
   `ITEM_CHANGE_LOG_ID` 	INT 		        NOT NULL AUTO_INCREMENT,
@@ -452,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `ITEM_CHANGE_LOG_T` (
   INDEX (`OPERATION_TYPE`),
   INDEX (`RECORD_ID`)
 )
-  ENGINE = InnoDB
+  ENGINE = InnoDB;
 
 SET SQL_MODE = @OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
