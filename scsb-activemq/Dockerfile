@@ -10,5 +10,7 @@ tar -xvzf ${ACTIVEMQ}-bin.tar.gz
 
 RUN mv /opt/${ACTIVEMQ} /opt/activemq
 
+COPY activemq.xml /opt/activemq/conf
+
 WORKDIR /opt/activemq/
 CMD ["/bin/sh", "-c", "bin/activemq console"]
