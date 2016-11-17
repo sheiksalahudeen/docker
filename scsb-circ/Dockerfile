@@ -10,4 +10,4 @@ RUN ln -s /opt/scsb/build/libs/scsb-circ-0.0.1-SNAPSHOT.jar /etc/init.d/scsb-cir
 
 EXPOSE 9095
 
-ENTRYPOINT java -jar -Denvironment=$ENV /opt/scsb-circ/build/libs/scsb-circ-0.0.1-SNAPSHOT.jar && bash
+# ENTRYPOINT java -jar -Denvironment=$ENV /opt/scsb-circ/build/libs/scsb-circ-0.0.1-SNAPSHOT.jar && bash
