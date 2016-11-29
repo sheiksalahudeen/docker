@@ -13,7 +13,9 @@ cd $PROJ_DIR
 git clone https://github.com/ResearchCollectionsAndPreservation/scsb-circ.git
 # echo $PROJ_DIR_TAG
 cd $PROJ_DIR_TAG
-git checkout tags/$1
+if [ ! -z $1 ] ;then
+    git checkout tags/$1
+fi
 # ls -l
 pwd
 ./gradlew clean build -x test
