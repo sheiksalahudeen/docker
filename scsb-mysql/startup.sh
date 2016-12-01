@@ -20,6 +20,18 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         	killall mysqld
 
             sleep 10s
+else
+    echo "Run Alter scripts for mysql db"
+    mysqld --initialize-insecure --console
+
+    echo "Run mysql"
+        /usr/bin/mysqld_safe & sleep 10s
+
+    	mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
+
+    	        killall mysqld
+
+                sleep 10s
 
 fi
 	echo "DB already initialized; Starting MySQL"
