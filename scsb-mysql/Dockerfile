@@ -21,6 +21,9 @@ COPY 6_REQUEST_TYPE_T.sql /opt/git/mysql/6_REQUEST_TYPE_T.sql
 COPY 7_ALLOW_CONTAINER_LINKING.sql /opt/git/mysql/7_ALLOW_CONTAINER_LINKING.sql
 COPY 9_CUSTOMER_CODE_T.sql /opt/git/mysql/9_CUSTOMER_CODE_T.sql
 COPY 10_RECAP_ALTER_SCRIPTS.sql /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
+COPY 11_PERMISSIONS_T.sql /opt/git/mysql/11_PERMISSIONS_T.sql
+COPY 12_ROLES_T.sql /opt/git/mysql/12_ROLES_T.sql
+COPY 13_ROLES_PERMISSIONS_T.sql /opt/git/mysql/13_ROLES_PERMISSIONS_T.sql
 
 ENTRYPOINT ["/opt/startup.sh"]
 
