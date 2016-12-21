@@ -18,7 +18,9 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
         mysql -uroot < /opt/git/mysql/11_PERMISSIONS_T.sql
         mysql -uroot < /opt/git/mysql/12_ROLES_T.sql
-        mysql -uroot < /opt/git/mysql/12_ROLES_PERMISSIONS_T.sql
+        mysql -uroot < /opt/git/mysql/13_ROLES_PERMISSIONS_T.sql
+        mysql -uroot < /opt/git/mysql/14_USER_T.sql
+        mysql -uroot < /opt/git/mysql/15_USER_ROLE_T.sql
 
         	killall mysqld
 
