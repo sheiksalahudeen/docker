@@ -24,6 +24,8 @@ COPY 10_RECAP_ALTER_SCRIPTS.sql /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
 COPY 11_PERMISSIONS_T.sql /opt/git/mysql/11_PERMISSIONS_T.sql
 COPY 12_ROLES_T.sql /opt/git/mysql/12_ROLES_T.sql
 COPY 13_ROLES_PERMISSIONS_T.sql /opt/git/mysql/13_ROLES_PERMISSIONS_T.sql
+COPY 14_USER_T.sql /opt/git/mysql/14_USER_T.sql
+COPY 15_USER_ROLE_T.sql /opt/git/mysql/15_USER_ROLE_T.sql
 
 ENTRYPOINT ["/opt/startup.sh"]
 
