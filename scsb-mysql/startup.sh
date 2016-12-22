@@ -16,11 +16,11 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/7_ALLOW_CONTAINER_LINKING.sql
         mysql -uroot < /opt/git/mysql/8_SET_TIME_ZONE.sql
         mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
-        mysql -uroot < /opt/git/mysql/11_PERMISSIONS_T.sql
-        mysql -uroot < /opt/git/mysql/12_ROLES_T.sql
-        mysql -uroot < /opt/git/mysql/13_ROLES_PERMISSIONS_T.sql
-        mysql -uroot < /opt/git/mysql/14_USER_T.sql
-        mysql -uroot < /opt/git/mysql/15_USER_ROLE_T.sql
+        mysql -uroot < /opt/git/mysql/12_PERMISSIONS_T.sql
+        mysql -uroot < /opt/git/mysql/13_ROLES_T.sql
+        mysql -uroot < /opt/git/mysql/14_ROLES_PERMISSIONS_T.sql
+        mysql -uroot < /opt/git/mysql/15_USER_T.sql
+        mysql -uroot < /opt/git/mysql/16_USER_ROLE_T.sql
 
         	killall mysqld
 
@@ -33,6 +33,12 @@ else
         /usr/bin/mysqld_safe & sleep 10s
 
     	mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
+    	mysql -uroot < /opt/git/mysql/11_ONGOING_TABLES_CREATION.sql
+    	mysql -uroot < /opt/git/mysql/12_PERMISSIONS_T.sql
+    	mysql -uroot < /opt/git/mysql/13_ROLES_T.sql
+    	mysql -uroot < /opt/git/mysql/14_ROLES_PERMISSIONS_T.sql
+    	mysql -uroot < /opt/git/mysql/15_USER_T.sql
+    	mysql -uroot < /opt/git/mysql/16_USER_ROLE_T.sql
 
     	        killall mysqld
 
