@@ -27,6 +27,7 @@ COPY 13_ROLES_T.sql /opt/git/mysql/13_ROLES_T.sql
 COPY 14_ROLES_PERMISSIONS_T.sql /opt/git/mysql/14_ROLES_PERMISSIONS_T.sql
 COPY 15_USER_T.sql /opt/git/mysql/15_USER_T.sql
 COPY 16_USER_ROLE_T.sql /opt/git/mysql/16_USER_ROLE_T.sql
+COPY 17_REQUEST_ITEM_STATUS_T.sql /opt/git/mysql/17_REQUEST_ITEM_STATUS_T.sql
 
 ENTRYPOINT ["/opt/startup.sh"]
 
