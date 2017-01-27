@@ -39,6 +39,11 @@ else
         mysql -uroot < /opt/git/mysql/11_ONGOING_TABLES_CREATION.sql
         mysql -uroot < /opt/git/mysql/17_REQUEST_ITEM_STATUS_T.sql
     	mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
+    	mysql -uroot < /opt/git/mysql/12_PERMISSIONS_T.sql
+        mysql -uroot < /opt/git/mysql/13_ROLES_T.sql
+        mysql -uroot < /opt/git/mysql/14_ROLES_PERMISSIONS_T.sql
+        mysql -uroot < /opt/git/mysql/15_USER_T.sql
+        mysql -uroot < /opt/git/mysql/16_USER_ROLE_T.sql
 
     	        killall mysqld
 
