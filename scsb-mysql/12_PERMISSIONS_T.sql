@@ -1,6 +1,6 @@
 
 
-INSERT INTO `recap`.`PERMISSIONS_T` (`PERMISSION_ID`,`PERMISSION_NAME`,`PERMISSION_DESCRIPTION`) VALUES (1,'Create Users','To create users,assign roles');
+INSERT INTO `recap`.`PERMISSIONS_T` (`PERMISSION_ID`,`PERMISSION_NAME`,`PERMISSION_DESCRIPTION`) VALUES (1,'Create User','To create users,assign roles');
 INSERT INTO `recap`.`PERMISSIONS_T` (`PERMISSION_ID`,`PERMISSION_NAME`,`PERMISSION_DESCRIPTION`) VALUES (2,'Write/Edit CGD','To write/edit CGD for own institutions');
 INSERT INTO `recap`.`PERMISSIONS_T` (`PERMISSION_ID`,`PERMISSION_NAME`,`PERMISSION_DESCRIPTION`) VALUES (3,'Deaccession','To deaccession records for own institution');
 INSERT INTO `recap`.`PERMISSIONS_T` (`PERMISSION_ID`,`PERMISSION_NAME`,`PERMISSION_DESCRIPTION`) VALUES (4,'Place requests for own institution\'s items and Shared/Open items of other institution','Ability to place request within own institution');
