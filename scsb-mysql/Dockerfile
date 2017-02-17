@@ -12,7 +12,7 @@ RUN chmod 777 /opt/startup.sh
 COPY my.cnf /usr/share/mysql/my-default.cnf
 COPY my.cnf /etc/mysql/my.cnf
 
-COPY 1_SONAR_SCHEMA_CREATION.sql /opt/git/mysql/1_SONAR_SCHEMA_CREATION.sql
+COPY 1_SONAR_AND_CAS_SCHEMA_CREATION.sql /opt/git/mysql/1_SONAR_AND_CAS_SCHEMA_CREATION.sql
 COPY 2_RECAP_SCHEMA_TABLES_CREATION.sql /opt/git/mysql/2_RECAP_SCHEMA_TABLES_CREATION.sql
 COPY 3_COLLECTION_GROUP_T.sql /opt/git/mysql/3_COLLECTION_GROUP_T.sql
 COPY 4_INSTITUTION_T.sql /opt/git/mysql/4_INSTITUTION_T.sql
