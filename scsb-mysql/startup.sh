@@ -7,7 +7,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 	echo "Run mysql"
     	/usr/bin/mysqld_safe & sleep 10s
 
-    	mysql -uroot < /opt/git/mysql/1_SONAR_AND_CAS_SCHEMA_CREATION.sql
+    	mysql -uroot < /opt/git/mysql/1_SONAR_SCHEMA_CREATION.sql
     	mysql -uroot < /opt/git/mysql/2_RECAP_SCHEMA_TABLES_CREATION.sql
         mysql -uroot < /opt/git/mysql/3_COLLECTION_GROUP_T.sql
         mysql -uroot < /opt/git/mysql/4_INSTITUTION_T.sql
@@ -22,6 +22,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/15_USER_T.sql
         mysql -uroot < /opt/git/mysql/16_USER_ROLE_T.sql
         mysql -uroot < /opt/git/mysql/17_REQUEST_ITEM_STATUS_T.sql
+        mysql -uroot < /opt/git/mysql/19_CAS_SCHEMA_CREATION.sql
 
 
         	killall mysqld
@@ -34,7 +35,6 @@ else
     echo "Run mysql"
         /usr/bin/mysqld_safe & sleep 10s
 
-    	mysql -uroot < /opt/git/mysql/1_SONAR_AND_CAS_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/11_ONGOING_TABLES_CREATION.sql
     	mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
         mysql -uroot < /opt/git/mysql/17_REQUEST_ITEM_STATUS_T.sql
@@ -43,6 +43,7 @@ else
         mysql -uroot < /opt/git/mysql/14_ROLES_PERMISSIONS_T.sql
         mysql -uroot < /opt/git/mysql/15_USER_T.sql
         mysql -uroot < /opt/git/mysql/16_USER_ROLE_T.sql
+    	mysql -uroot < /opt/git/mysql/19_CAS_SCHEMA_CREATION.sql
 
     	        killall mysqld
 
