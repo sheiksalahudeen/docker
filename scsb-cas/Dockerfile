@@ -3,7 +3,9 @@ MAINTAINER Sheik Salahudeen "sheik.sahib@htcinc.com"
 
 # Download the CAS overlay project \
 RUN cd /opt \
-    && git clone https://github.com/ResearchCollectionsAndPreservation/scsb-cas.git cas-overlay \
+    && git clone https://github.com/sheiksalahudeen/scsb-cas.git cas-overlay \
+    && cd cas-overlay \
+    && git checkout casFix \
     && mkdir -p /etc/cas \
     && mkdir -p /etc/cas/services \
     && mkdir -p /etc/cas/config \
