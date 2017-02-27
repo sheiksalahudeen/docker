@@ -6,7 +6,7 @@ RUN cd /opt \
     && git clone https://github.com/sheiksalahudeen/scsb-cas.git cas-overlay \
     && cd cas-overlay \
     && git checkout casFix \
-    && cd ..
+    && cd .. \
     && mkdir -p /etc/cas \
     && mkdir -p /etc/cas/services \
     && mkdir -p /etc/cas/config \
