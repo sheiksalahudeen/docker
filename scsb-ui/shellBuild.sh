@@ -14,7 +14,7 @@ cd $PROJ_DIR
 git clone https://github.com/sheiksalahudeen/docker.git
 # echo $PROJ_DIR_TAG
 cd $PROJ_DIR_TAG
-git checkout NYPL-OAuth
+#git checkout NYPL-OAuth
 #if [ ! -z $1 ] ;then
 #    git checkout tags/$1
 #fi
