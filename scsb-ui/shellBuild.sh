@@ -9,7 +9,7 @@ VAR_SLASH="/"
 PROJ_DIR_TAG=$PROJ_DIR$VAR_SLASH$PROJ_NAME;
 
 # echo $PROJ_DIR_TAG
-mkdir /opt/$PROJ_NAME
+mkdir $PROJ_NAME
 cd $PROJ_DIR
 git clone https://github.com/sheiksalahudeen/docker.git
 # echo $PROJ_DIR_TAG
