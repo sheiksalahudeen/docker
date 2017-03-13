@@ -14,7 +14,6 @@ cd $PROJ_DIR
 git clone https://github.com/sheiksalahudeen/scsb-ui.git
 # echo $PROJ_DIR_TAG
 cd scsb-ui
-git checkout NYPL-Fix
 ls
 #if [ ! -z $1 ] ;then
 #    git checkout tags/$1
