@@ -1,7 +1,7 @@
 
 INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (1,'Super Admin','Admin for all the institutions',now(),'ReCAP',now(),'ReCAP');
 INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (2,'Admin','Admin for particular institutions',now(),'ReCAP',now(),'ReCAP');
-INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (3,'Search Request','Search and Request for particular institution',now(),'ReCAP',now(),'ReCAP');
+INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (3,'Request','Search and Request for particular institution',now(),'ReCAP',now(),'ReCAP');
 INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (4,'Collection','Collection user for particular institution',now(),'ReCAP',now(),'ReCAP');
 INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (5,'ReCAP','ReCAP Users',now(),'ReCAP',now(),'ReCAP');
 INSERT INTO `recap`.`ROLES_T` (`ROLE_ID`,`ROLE_NAME`,`ROLE_DESCRIPTION`,`CREATED_DATE`,`CREATED_BY`,`LAST_UPDATED_DATE`,`LAST_UPDATED_BY`) VALUES (6,'Search','Search users',now(),'ReCAP',now(),'ReCAP');
