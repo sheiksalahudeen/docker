@@ -319,6 +319,10 @@
          faster and more near-realtime friendly than a hard commit.
       -->
 
+    <commitWithin>
+      <softCommit>false</softCommit>
+    </commitWithin>
+
     <autoSoftCommit>
       <maxTime>${solr.autoSoftCommit.maxTime:-1}</maxTime>
     </autoSoftCommit>
