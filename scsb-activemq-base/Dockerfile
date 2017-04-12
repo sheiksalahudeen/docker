@@ -1,5 +1,5 @@
-FROM scsb/scsb-base:latest
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+FROM recapscsb/scsb-base:latest
+MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 ENV ACTIVEMQ_VERSION 5.14.1
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION

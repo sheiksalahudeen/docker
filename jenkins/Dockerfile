@@ -1,10 +1,5 @@
-FROM ubuntu:16.04
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
-
-### Basic Configuration 
-RUN apt-get -q update
-RUN apt-get install -q -y software-properties-common wget curl
-RUN apt-get install -qq -y git vim zip
+FROM recapscsb/scsb-base:latest
+MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 RUN wget -q -O -  http://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && \
 sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
@@ -27,13 +22,6 @@ wget http://updates.jenkins-ci.org/download/plugins/antisamy-markup-formatter/1.
 wget http://updates.jenkins-ci.org/download/plugins/mailer/1.17/mailer.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/maven-plugin/2.13/maven-plugin.hpi && \
 wget http://updates.jenkins-ci.org/download/plugins/cobertura/1.9.8/cobertura.hpi
-
-RUN wget \
-    --no-cookies \
-    --no-check-certificate \
-    --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-    -qO- \
-    "http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz" | tar -zx -C /opt/
 
 ENV JAVA_HOME /opt/jdk1.8.0_51
 ENV PATH $JAVA_HOME/bin:$PATH

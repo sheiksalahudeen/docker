@@ -1,5 +1,5 @@
-FROM scsb/scsb-activemq-base:latest
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+FROM recapscsb/scsb-activemq-base:latest
+MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 COPY activemq.xml /opt/activemq/conf
 COPY activemq.sh /opt/activemq/bin

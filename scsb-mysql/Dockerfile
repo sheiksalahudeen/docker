@@ -1,5 +1,5 @@
 FROM mysql:5.7.14
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 #Set Terminal
 ENV TERM=xterm

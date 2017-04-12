@@ -1,5 +1,5 @@
-FROM scsb/scsb-solr-base:latest
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+FROM recapscsb/scsb-solr-base:latest
+MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 # Get files from GIT using tag
 ARG TAG
