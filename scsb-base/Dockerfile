@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+MAINTAINER HTC Recap Support "recap-support@htcindia.com"
 
 ENV TERM=xterm
 

@@ -1,5 +1,5 @@
-FROM scsb/scsb-base:latest
-MAINTAINER Peri Subrahmanya "peri.subrahmanya@htcinc.com"
+FROM recapscsb/scsb-base:latest
+MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 ARG TAG
 ENV envTag="$TAG"
