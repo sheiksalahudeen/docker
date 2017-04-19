@@ -389,11 +389,13 @@ CREATE TABLE IF NOT EXISTS `ETL_GFA_TEMP_T` (
 -- Table `CUSTOMER_CODE_T`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `CUSTOMER_CODE_T` (
-  `CUSTOMER_CODE_ID`      INT             NOT NULL AUTO_INCREMENT,
-  `CUSTOMER_CODE`         VARCHAR(45)     NOT NULL,
-  `DESCRIPTION`           VARCHAR(2000)   NOT NULL,
-  `OWNING_INST_ID`	      INT             NOT NULL,
-  `DELIVERY_RESTRICTIONS` VARCHAR(2000)   NULL,
+  `CUSTOMER_CODE_ID`             INT             NOT NULL AUTO_INCREMENT,
+  `CUSTOMER_CODE`                VARCHAR(45)     NOT NULL,
+  `DESCRIPTION`                  VARCHAR(2000)   NOT NULL,
+  `OWNING_INST_ID`	             INT             NULL,
+  `DELIVERY_RESTRICTIONS`        VARCHAR(2000)   NULL,
+  `PWD_DELIVERY_RESTRICTIONS`    VARCHAR(2000)   NULL,
+  `RECAP_DELIVERY_RESTRICTIONS`  VARCHAR(2000)   NULL,
   PRIMARY KEY (`CUSTOMER_CODE_ID`),
   UNIQUE KEY `CUSTOMER_CODE_UNIQUE` (`CUSTOMER_CODE`,`OWNING_INST_ID`),
   INDEX (`CUSTOMER_CODE`),
@@ -405,7 +407,6 @@ CREATE TABLE IF NOT EXISTS `CUSTOMER_CODE_T` (
     ON UPDATE NO ACTION
 )
   ENGINE = InnoDB;
-
 -- -----------------------------------------------------
 -- Table `ITEM_CHANGE_LOG_T`
 -- -----------------------------------------------------
