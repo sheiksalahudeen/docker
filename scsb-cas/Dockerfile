@@ -1,33 +1,20 @@
 FROM recapscsb/scsb-base:latest
 MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
-# Download the CAS overlay project \
-RUN cd /opt \
-    && git clone https://github.com/ResearchCollectionsAndPreservation/scsb-cas.git cas-overlay \
-    && mkdir -p /etc/cas \
-    && mkdir -p /etc/cas/services \
-    && mkdir -p /etc/cas/config \
-    && mkdir -p cas-overlay/bin \
-    && cp -f cas-overlay/etc/cas/config/*.* /etc/cas/config;
+ARG TAG
+ENV envTag="$TAG"
 
-COPY thekeystore /etc/cas/
-COPY run-cas.sh /opt/cas-overlay/bin/run-cas.sh
+# Create config directory
+RUN mkdir /opt/cas-config
 
-RUN chmod -R 750 /opt/cas-overlay/bin \
-    && chmod 750 /opt/cas-overlay/mvnw \
-    && chmod 750 /opt/cas-overlay/build.sh \
-    && chmod 750 /opt/jdk1.8.0_51/bin/java;
+# Copy config files
+COPY thekeystore /opt/cas-config/thekeystore
+COPY run-cas.sh /opt/cas-config/run-cas.sh
 
-# Enable if you are using Oracle Java
-#	&& chmod 750 /opt/jdk1.8.0_51/jre/bin/java;
+COPY shellBuild.sh /opt/
+RUN chmod 750 /opt/shellBuild.sh
+RUN cd /opt && ls -l && ./shellBuild.sh ${envTag}
 
 EXPOSE 8080 10443
 
-WORKDIR /opt/cas-overlay
-
-ENV JAVA_HOME /opt/jdk1.8.0_51
-ENV PATH $PATH:$JAVA_HOME/bin:.
-
-RUN ./mvnw clean package -T 10
-
-CMD ["/opt/cas-overlay/bin/run-cas.sh"]
+CMD ["sh","/opt/cas-config/run-cas.sh"]
