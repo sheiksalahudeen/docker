@@ -25,6 +25,8 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/19_CAS_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/20_DELIVERY_RESTRICTION_CROSS_PARTNER_T.sql
         mysql -uroot < /opt/git/mysql/21_CROSS_PARTNER_MAPPING_T.sql
+        mysql -uroot < /opt/git/mysql/22_BATCH_SCHEMA_CREATION.sql
+        mysql -uroot < /opt/git/mysql/23_JOB_T.sql
 
         	killall mysqld
 
@@ -41,6 +43,8 @@ else
         mysql -uroot < /opt/git/mysql/11_ONGOING_TABLES_CREATION.sql
         mysql -uroot < /opt/git/mysql/20_DELIVERY_RESTRICTION_CROSS_PARTNER_T.sql
         mysql -uroot < /opt/git/mysql/21_CROSS_PARTNER_MAPPING_T.sql
+        mysql -uroot < /opt/git/mysql/22_BATCH_SCHEMA_CREATION.sql
+        mysql -uroot < /opt/git/mysql/23_JOB_T.sql
 
     	        killall mysqld
 
