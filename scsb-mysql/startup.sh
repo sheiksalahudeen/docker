@@ -39,6 +39,9 @@ else
         /usr/bin/mysqld_safe & sleep 10s
 
         mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
+        mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
+        mysql -uroot < /opt/git/mysql/20_DELIVERY_RESTRICTION_CROSS_PARTNER_T.sql
+        mysql -uroot < /opt/git/mysql/21_CROSS_PARTNER_MAPPING_T.sql
         mysql -uroot < /opt/git/mysql/11_ONGOING_TABLES_CREATION.sql
         mysql -uroot < /opt/git/mysql/22_BATCH_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/23_JOB_T.sql
