@@ -2,6 +2,7 @@ FROM recapscsb/scsb-activemq-base:latest
 MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
 COPY activemq.xml /opt/activemq/conf
+COPY jetty-realm.properties /opt/activemq/conf
 COPY activemq.sh /opt/activemq/bin
 COPY env /opt/activemq/bin
 COPY env-container /opt/activemq/bin

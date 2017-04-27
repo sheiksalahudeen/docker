@@ -9,5 +9,7 @@ sed -i -e 's@replace_your_db_username@'"$DB_USERNAME"'@g' /opt/activemq/conf/act
 #Replace db password
 sed -i -e 's@replace_your_db_password@'"$DB_PASSWORD"'@g' /opt/activemq/conf/activemq.xml
 
+sed -i -e 's@#--replace_user_infos@'"$USERS"'@g' /opt/activemq/conf/jetty-realm.properties
+
 #Start container.
 /opt/activemq/bin/activemq console
