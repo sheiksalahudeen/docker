@@ -80,7 +80,7 @@
             http://activemq.apache.org/persistence.html
         -->
         <persistenceAdapter>
-            <kahaDB directory="${activemq.data}/kahadb"/>
+            <jdbcPersistenceAdapter dataSource="#mysql-ds"/>
         </persistenceAdapter>
 
 
@@ -138,6 +138,16 @@
         Take a look at ${ACTIVEMQ_HOME}/conf/jetty.xml for more details
     -->
     <import resource="jetty.xml"/>
+
+
+    <!-- MySql DataSource Setup -->
+    <bean id="mysql-ds" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="replace_your_db_url"/>
+        <property name="username" value="replace_your_db_username"/>
+        <property name="password" value="replace_your_db_password"/>
+        <property name="poolPreparedStatements" value="true"/>
+    </bean>
 
 </beans>
         <!-- END SNIPPET: example -->
