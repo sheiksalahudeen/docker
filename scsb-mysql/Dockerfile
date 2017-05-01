@@ -4,11 +4,14 @@ MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 #Set Terminal
 ENV TERM=xterm
 
-#Add my.cnf
+#Set EST Timezone
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY startup.sh /opt/startup.sh
 RUN chmod 777 /opt/startup.sh
 
+#Add my.cnf
 COPY my.cnf /usr/share/mysql/my-default.cnf
 COPY my.cnf /etc/mysql/my.cnf
 
