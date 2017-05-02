@@ -6,6 +6,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
 
 	echo "Run mysql"
     	/usr/bin/mysqld_safe & sleep 10s
+    	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot mysql
 
     	mysql -uroot < /opt/git/mysql/1_SONAR_SCHEMA_CREATION.sql
     	mysql -uroot < /opt/git/mysql/2_RECAP_SCHEMA_TABLES_CREATION.sql
@@ -14,7 +15,6 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/5_ITEM_STATUS_T.sql
         mysql -uroot < /opt/git/mysql/6_REQUEST_TYPE_T.sql
         mysql -uroot < /opt/git/mysql/7_ALLOW_CONTAINER_LINKING.sql
-        mysql -uroot < /opt/git/mysql/8_SET_TIME_ZONE.sql
         mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
         mysql -uroot < /opt/git/mysql/12_PERMISSIONS_T.sql
         mysql -uroot < /opt/git/mysql/13_ROLES_T.sql
@@ -38,6 +38,7 @@ else
 
     echo "Run mysql"
         /usr/bin/mysqld_safe & sleep 10s
+    	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot mysql
 
         mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
         mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
@@ -53,6 +54,11 @@ else
                 sleep 10s
 
 fi
-	echo "DB already initialized; Starting MySQL"
-	/usr/bin/mysqld_safe & tail -f /dev/null
+
+echo 'Set Time zone'
+sed -i -e 's@#--TimeZoneConfig@'"default-time-zone='America/New_York'"'@g' /usr/share/mysql/my-default.cnf
+sed -i -e 's@#--TimeZoneConfig@'"default-time-zone='America/New_York'"'@g' /etc/mysql/my.cnf
+
+echo "DB already initialized; Starting MySQL"
+/usr/bin/mysqld_safe & tail -f /dev/null
 
