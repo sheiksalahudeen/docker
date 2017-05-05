@@ -1,5 +1,10 @@
 USE `recap` ;
 
 -- Script for Release 0.9.22 starts here
+DELETE FROM cross_partner_mapping_t;
+DELETE FROM delivery_restriction_cross_partner_t;
+DELETE FROM customer_code_t;
+ALTER TABLE Customer_code_t ADD COLUMN CIRC_DESK_LOCATION VARCHAR(20) NULL DEFAULT NULL AFTER RECAP_DELIVERY_RESTRICTIONS;
+
 INSERT INTO REQUEST_ITEM_STATUS_T (REQUEST_STATUS_ID, REQUEST_STATUS_CODE, REQUEST_STATUS_DESC) VALUES (8,"PROCESSING","PROCESSING ...");
 -- Script for Release 0.9.22 starts here
