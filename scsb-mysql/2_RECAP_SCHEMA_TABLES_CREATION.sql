@@ -593,7 +593,7 @@ CREATE TABLE IF NOT EXISTS `CROSS_PARTNER_MAPPING_T` (
 -- -----------------------------------------------------
 -- Table `JOB_T`
 -- -----------------------------------------------------
-CREATE TABLE `JOB_T` (
+CREATE TABLE IF NOT EXISTS `JOB_T` (
   `JOB_ID` INT NOT NULL AUTO_INCREMENT,
   `JOB_NAME` VARCHAR(45) NULL,
   `JOB_DESC` VARCHAR(2000) NULL,
@@ -602,6 +602,17 @@ CREATE TABLE `JOB_T` (
   `CRON_EXP` VARCHAR(45) NULL,
   `STATUS` VARCHAR(45) NULL,
   PRIMARY KEY (`JOB_ID`)
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `ACCESSION_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ACCESSION_T` (
+  `ACCESSION_ID` INT NOT NULL AUTO_INCREMENT,
+  `ACCESSION_REQUEST` LONGBLOB NULL,
+  `CREATED_DATE` DATETIME NULL,
+  `ACCESSION_STATUS` VARCHAR(45) NULL,
+  PRIMARY KEY (`ACCESSION_ID`)
 ) ENGINE = InnoDB;
 
 
