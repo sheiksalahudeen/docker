@@ -578,6 +578,31 @@ CREATE TABLE IF NOT EXISTS `ACCESSION_T` (
   PRIMARY KEY (`ACCESSION_ID`)
 ) ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `recap`.`JOB_PARAM_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `JOB_PARAM_T` (
+  `RECORD_NUM`    INT  NOT NULL AUTO_INCREMENT,
+  `JOB_NAME`     VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`RECORD_NUM`),
+  UNIQUE INDEX `JOB_NAME_UNIQUE` (`JOB_NAME` ASC)
+)
+  ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `recap`.`JOB_PARAM_DATA_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `JOB_PARAM_DATA_T` (
+  `JOB_PARAM_DATA_ID` INT         NOT NULL AUTO_INCREMENT,
+  `PARAM_NAME`    VARCHAR(100) NOT NULL,
+  `PARAM_VALUE`   VARCHAR(2000) NOT NULL,
+  `RECORD_NUM`     INT         NULL,
+  PRIMARY KEY (`JOB_PARAM_DATA_ID`),
+  INDEX `RECORD_NUM_idx` (`RECORD_NUM` ASC),
+  INDEX `PARAM_NAME_idx` (`PARAM_NAME` ASC)
+)
+  ENGINE = InnoDB;
+
 
 SET SQL_MODE = @OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
