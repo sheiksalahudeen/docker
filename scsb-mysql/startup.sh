@@ -28,6 +28,8 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/22_BATCH_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/23_JOB_T.sql
         mysql -uroot < /opt/git/mysql/24_ACTIVEMQ_SCHEMA_CREATION.sql
+        mysql -uroot < /opt/git/mysql/25_JOB_PARAM_T.sql
+        mysql -uroot < /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
 
         	killall mysqld
 
@@ -48,6 +50,9 @@ else
         mysql -uroot < /opt/git/mysql/22_BATCH_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/23_JOB_T.sql
         mysql -uroot < /opt/git/mysql/24_ACTIVEMQ_SCHEMA_CREATION.sql
+        mysql -uroot < /opt/git/mysql/25_JOB_PARAM_T.sql
+        mysql -uroot < /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
+
 
     	        killall mysqld
 
