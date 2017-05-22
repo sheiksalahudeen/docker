@@ -43,13 +43,6 @@ else
     	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot mysql
 
         mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
-        mysql -uroot < /opt/git/mysql/9_CUSTOMER_CODE_T.sql
-        mysql -uroot < /opt/git/mysql/20_DELIVERY_RESTRICTION_CROSS_PARTNER_T.sql
-        mysql -uroot < /opt/git/mysql/21_CROSS_PARTNER_MAPPING_T.sql
-        mysql -uroot < /opt/git/mysql/11_ONGOING_TABLES_CREATION.sql
-        mysql -uroot < /opt/git/mysql/22_BATCH_SCHEMA_CREATION.sql
-        mysql -uroot < /opt/git/mysql/23_JOB_T.sql
-        mysql -uroot < /opt/git/mysql/24_ACTIVEMQ_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/25_JOB_PARAM_T.sql
         mysql -uroot < /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
 
