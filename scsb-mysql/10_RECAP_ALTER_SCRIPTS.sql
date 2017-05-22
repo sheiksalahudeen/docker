@@ -1,16 +1,11 @@
 USE `recap` ;
 
--- Script for Release 0.9.23 starts here
-UPDATE `recap`.`CUSTOMER_CODE_T` SET `DESCRIPTION`='Firestone Library' WHERE `CUSTOMER_CODE`='PA';
-INSERT INTO `recap`.`REQUEST_ITEM_STATUS_T` (`REQUEST_STATUS_ID`,`REQUEST_STATUS_CODE`,`REQUEST_STATUS_DESC`) VALUES (9,'INITIAL_LOAD','INITIAL LOAD');
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (4,'DailyReconcilation','Generate DailyReconcilation Report',NULL,NULL,NULL,NULL);
-
-DROP TABLE AUDIT_T;
-DROP TABLE LOAN_T;
-
--- Script for Release 0.9.23 ends here
-
+-- Script for Release 0.9.24 starts here
 
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (5,'GenerateAccessionReport','Generate Accession Report',NULL,NULL,NULL,NULL);
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (6,'Accession','Ongoing Accession',NULL,NULL,NULL,NULL);
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (7,'RunJobSequentially','Run Job Sequentially',NULL,NULL,NULL,NULL);
+
+-- Script for Release 0.9.24 ends here
+
+

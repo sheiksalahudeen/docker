@@ -1,5 +1,15 @@
 USE `recap` ;
 
+-- Script for Release 0.9.23 starts here
+UPDATE `recap`.`CUSTOMER_CODE_T` SET `DESCRIPTION`='Firestone Library' WHERE `CUSTOMER_CODE`='PA';
+INSERT INTO `recap`.`REQUEST_ITEM_STATUS_T` (`REQUEST_STATUS_ID`,`REQUEST_STATUS_CODE`,`REQUEST_STATUS_DESC`) VALUES (9,'INITIAL_LOAD','INITIAL LOAD');
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (4,'DailyReconcilation','Generate DailyReconcilation Report',NULL,NULL,NULL,NULL);
+
+DROP TABLE AUDIT_T;
+DROP TABLE LOAN_T;
+
+-- Script for Release 0.9.23 ends here
+
 -- Script for Release 0.9.22 starts here
 
 DELETE FROM CROSS_PARTNER_MAPPING_T;
