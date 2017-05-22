@@ -14,10 +14,7 @@ cd $PROJ_DIR
 git clone https://github.com/sheiksalahudeen/scsb-etl.git
 # echo $PROJ_DIR_TAG
 cd $PROJ_DIR_TAG
-if [ ! -z $1 ] ;then
-    git checkout tags/$1
-fi
-# ls -l
+git checkout tags/0.9.23
 pwd
 ./gradlew clean build -x test
 
