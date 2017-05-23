@@ -19,4 +19,8 @@ RUN cd /opt && ls -l && ./shellBuild.sh
 # Change solr logs directory.
 RUN echo 'SOLR_OPTS="$SOLR_OPTS -Dsolr.log=/var/data/solr-logs"' >> /opt/solr-6.5.0/bin/solr.in.sh
 
-ENTRYPOINT /opt/solr-6.5.0/bin/solr -force -f -m 4g
+#Add startup.sh
+COPY startup.sh /opt/startup.sh
+RUN chmod 777 /opt/startup.sh
+
+ENTRYPOINT ["/opt/startup.sh"]
