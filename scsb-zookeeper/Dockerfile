@@ -7,6 +7,7 @@ ENV ZOO_USER=zookeeper
 ENV ZOO_BASE=/opt/scsb-zookeeper
 
 ARG DISTRO_NAME=/opt/zookeeper
+ENV DISTRO_NAME=$DISTRO_NAME
 
 WORKDIR $DISTRO_NAME
 
@@ -18,10 +19,6 @@ ENV ZOO_USER=zookeeper \
     ZOO_TICK_TIME=2000 \
     ZOO_INIT_LIMIT=5 \
     ZOO_SYNC_LIMIT=2
-
-# Add a user and make dirs
-RUN mkdir -p "$ZOO_BASE" "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" \
-    && mv "$DISTRO_NAME/conf/"* "$ZOO_CONF_DIR"
 
 VOLUME ["$ZOO_DATA_DIR", "$ZOO_DATA_LOG_DIR"]
 
