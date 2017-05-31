@@ -1,35 +1,7 @@
 USE `recap` ;
 
--- Script for Release 0.9.24 starts here
+-- Script for Release 0.9.25 starts here
 
-CREATE TABLE IF NOT EXISTS `JOB_PARAM_T` (
-  `RECORD_NUM`    INT  NOT NULL AUTO_INCREMENT,
-  `JOB_NAME`     VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`RECORD_NUM`),
-  UNIQUE INDEX `JOB_NAME_UNIQUE` (`JOB_NAME` ASC)
-)
-  ENGINE = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `JOB_PARAM_DATA_T` (
-  `JOB_PARAM_DATA_ID` INT         NOT NULL AUTO_INCREMENT,
-  `PARAM_NAME`    VARCHAR(100) NOT NULL,
-  `PARAM_VALUE`   VARCHAR(2000) NOT NULL,
-  `RECORD_NUM`     INT         NULL,
-  PRIMARY KEY (`JOB_PARAM_DATA_ID`),
-  INDEX `RECORD_NUM_idx` (`RECORD_NUM` ASC),
-  INDEX `PARAM_NAME_idx` (`PARAM_NAME` ASC)
-)
-  ENGINE = InnoDB;
-
-UPDATE `recap`.`customer_code_t` SET `DELIVERY_RESTRICTIONS`='BT,BZ,CS,MP,MH,RH,RS' WHERE `CUSTOMER_CODE`='RH';
-UPDATE `recap`.`customer_code_t` SET `DELIVERY_RESTRICTIONS`='BT,BZ,MP,MZ,RS,RH' WHERE `CUSTOMER_CODE`='RS';
-
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (5,'GenerateAccessionReport','Generate Accession Report',NULL,NULL,NULL,NULL);
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (6,'Accession','Ongoing Accession',NULL,NULL,NULL,NULL);
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (7,'RunJobSequentially','Run Job Sequentially',NULL,NULL,NULL,NULL);
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (8,'PurgeAccessionRequests','Purge Accession Requests',NULL,NULL,NULL,NULL);
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (9,'AccessionReconcilation','Generate DailyReconcilation Report',NULL,NULL,NULL,NULL);
-
--- Script for Release 0.9.24 ends here
+-- Script for Release 0.9.25 ends here
 
 
