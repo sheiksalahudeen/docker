@@ -4,20 +4,33 @@ MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 ARG ZOO_NODE_ID
 
 ENV ZOO_USER=zookeeper
-ENV ZOO_DATA=/opt/ZK_Data
-ENV ZOO_CNF_BASE=/opt/zookeeper/conf
+ENV ZOO_BASE=/opt/scsb-zookeeper
 
-RUN mkdir $ZOO_DATA
+ARG DISTRO_NAME=/opt/zookeeper
 
-ENV ZOO_CNF=$ZOO_CNF_BASE/zoo-1.cfg
+WORKDIR $DISTRO_NAME
 
-#Add zoo-1.cfg
-COPY zoo.cfg $ZOO_CNF
-RUN sed -i -e 's@#dataDir=@'"dataDir=$ZOO_DATA"'@g' $ZOO_CNF
-RUN echo 1 > $ZOO_DATA/myid
+ENV ZOO_USER=zookeeper \
+    ZOO_CONF_DIR=$ZOO_BASE/conf \
+    ZOO_DATA_DIR=$ZOO_BASE/data \
+    ZOO_DATA_LOG_DIR=$ZOO_BASE/datalog \
+    ZOO_PORT=2181 \
+    ZOO_TICK_TIME=2000 \
+    ZOO_INIT_LIMIT=5 \
+    ZOO_SYNC_LIMIT=2
 
-#Add startup.sh
-COPY startup.sh /opt/startup.sh
-RUN chmod 777 /opt/startup.sh
+# Add a user and make dirs
+RUN mkdir -p "$ZOO_BASE" "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" \
+    && mv "$DISTRO_NAME/conf/"* "$ZOO_CONF_DIR"
 
-ENTRYPOINT ["/opt/startup.sh"]
+VOLUME ["$ZOO_DATA_DIR", "$ZOO_DATA_LOG_DIR"]
+
+EXPOSE $ZOO_PORT 2888 3888
+
+ENV PATH=$PATH:/$DISTRO_NAME/bin \
+    ZOOCFGDIR=$ZOO_CONF_DIR
+
+COPY docker-entrypoint.sh /
+RUN chmod 777 /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["zkServer.sh", "start-foreground"]
