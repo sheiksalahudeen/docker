@@ -1,8 +1,6 @@
 FROM recapscsb/scsb-zookeeper-base:latest
 MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
-ARG ZOO_NODE_ID
-
 ENV ZOO_USER=zookeeper
 ENV ZOO_BASE=/opt/scsb-zookeeper
 

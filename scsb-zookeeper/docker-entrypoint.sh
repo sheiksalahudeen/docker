@@ -3,7 +3,10 @@
 
 # make dirs
 mkdir -p "$ZOO_BASE" "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" \
-    && mv "$DISTRO_NAME/conf/"* "$ZOO_CONF_DIR"
+    && cp -r "$DISTRO_NAME/conf/"* "$ZOO_CONF_DIR"
+
+export PATH=$PATH:/$DISTRO_NAME/bin \
+        ZOOCFGDIR=$ZOO_CONF_DIR
 
 # Generate the config only if it doesn't exist
 if [ ! -f "$ZOO_CONF_DIR/zoo.cfg" ]; then
