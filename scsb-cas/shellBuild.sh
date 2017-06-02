@@ -12,13 +12,11 @@ mkdir $PROJ_NAME
 cd $PROJ_DIR
 
 # echo Cloning poject
-git clone https://github.com/ResearchCollectionsAndPreservation/scsb-cas.git
+git clone https://github.com/sheiksalahudeen/scsb-cas.git
 
 # echo $PROJ_DIR_TAG
 cd $PROJ_DIR_TAG
-if [ ! -z $1 ] ;then
-    git checkout tags/$1
-fi
+git checkout prod
 ls -l
 pwd
 
