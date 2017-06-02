@@ -14,7 +14,6 @@ cd $PROJ_DIR
 git clone https://github.com/sheiksalahudeen/scsb-persistence.git
 # echo $PROJ_DIR_TAG
 cd $PROJ_DIR_TAG
-git checkout prod
 # ls -l
 pwd
 ./gradlew clean build -x test
