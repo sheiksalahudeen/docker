@@ -1,6 +1,7 @@
 USE `recap` ;
 
 -- Script for Release 0.9.25 starts here
+DROP TABLE `recap`.`REQUEST_INST_BIB_T`;
 DROP TABLE `recap`.`PATRON_T`;
 DROP TABLE `recap`.`ITEM_TRACKING_INFO_T`;
 
