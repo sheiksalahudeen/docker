@@ -22,6 +22,9 @@ fi
 ls -l
 pwd
 
+# echo Copy application config file
+cp /opt/cas-config/application.yml $PROJ_DIR_TAG/etc/cas/config/application.yml
+
 # echo Preparing config files
 mkdir -p /etc/cas \
     && mkdir -p /etc/cas/services \

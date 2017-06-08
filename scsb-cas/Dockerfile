@@ -10,6 +10,7 @@ RUN mkdir /opt/cas-config
 # Copy config files
 COPY thekeystore /opt/cas-config/thekeystore
 COPY run-cas.sh /opt/cas-config/run-cas.sh
+COPY application.yml /opt/cas-config/application.yml
 
 COPY shellBuild.sh /opt/
 RUN chmod 750 /opt/shellBuild.sh
