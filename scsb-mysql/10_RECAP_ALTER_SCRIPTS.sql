@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS DELETED_RECORDS_T (
   PRIMARY KEY (DELETED_RECORDS_ID)
 ) ENGINE=InnoDB;
 
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (11,'StatusReconcilation','Status Reconciliation',NULL,NULL,NULL,NULL);
+
 -- Script for Release 0.9.26 ends here
 
 
