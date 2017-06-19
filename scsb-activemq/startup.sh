@@ -20,6 +20,12 @@ else
     sed -i -e 's@<!--ReplaceStorageType-->@''<kahaDB directory="${activemq.data}/kahadb"/>''@g' /opt/activemq/conf/activemq.xml
 fi
 
+if [ $UPDATE_INSTANCE_HOST = "true" ]
+then
+    echo "Update Instance Host"
+    sed -i -e 's@scsbactivemqhost@'"$INSTANCE_HOST"'@g' /opt/activemq/bin/env
+fi
+
 sed -i -e 's@#--replace_user_infos@'"$USERS"'@g' /opt/activemq/conf/jetty-realm.properties
 
 #Start container.
