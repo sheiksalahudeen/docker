@@ -30,7 +30,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
         mysql -uroot < /opt/git/mysql/24_ACTIVEMQ_SCHEMA_CREATION.sql
         mysql -uroot < /opt/git/mysql/25_JOB_PARAM_T.sql
         mysql -uroot < /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
-
+        mysql -uroot < /opt/git/mysql/27_DELETE_TRIGGERS.sql
         	killall mysqld
 
             sleep 10s
@@ -43,6 +43,7 @@ else
     	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot mysql
 
         mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
+        mysql -uroot < /opt/git/mysql/27_DELETE_TRIGGERS.sql
         mysql -uroot < /opt/git/mysql/25_JOB_PARAM_T.sql
         mysql -uroot < /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
 
@@ -59,4 +60,3 @@ sed -i -e 's@#--TimeZoneConfig@'"default-time-zone='America/New_York'"'@g' /etc/
 
 echo "DB already initialized; Starting MySQL"
 /usr/bin/mysqld_safe & tail -f /dev/null
-

@@ -40,6 +40,7 @@ COPY 23_JOB_T.sql /opt/git/mysql/23_JOB_T.sql
 COPY 24_ACTIVEMQ_SCHEMA_CREATION.sql /opt/git/mysql/24_ACTIVEMQ_SCHEMA_CREATION.sql
 COPY 25_JOB_PARAM_T.sql /opt/git/mysql/25_JOB_PARAM_T.sql
 COPY 26_JOB_PARAM_DATA_T.sql /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
+COPY 27_DELETE_TRIGGERS.sql /opt/git/mysql/27_DELETE_TRIGGERS.sql
 
 ENTRYPOINT ["/opt/startup.sh"]
 
