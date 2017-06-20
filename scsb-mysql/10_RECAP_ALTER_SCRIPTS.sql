@@ -2,6 +2,8 @@ USE `recap` ;
 
 -- Script for Release 0.9.27 starts here
 
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (12,'RequestInitialLoad','RequestInitialLoad',NULL,NULL,NULL,NULL,NULL);
+
 UPDATE `recap`.`job_t` SET `JOB_DESC`='Purge the exception status requests which are 365 days older. (Number of days is configurable)' WHERE `JOB_ID`='1';
 UPDATE `recap`.`job_t` SET `JOB_DESC`='Purge the email address attached to a request after 90 days of refile. In case of PHYREQ and after 60 days of EDD fulfillment. (Number of days is configurable)' WHERE `JOB_ID`='2';
 UPDATE `recap`.`job_t` SET `JOB_NAME`='OngoingMatchingAlgorithm', `JOB_DESC`='Ongoing matching algorithm process' WHERE `JOB_ID`='3';
