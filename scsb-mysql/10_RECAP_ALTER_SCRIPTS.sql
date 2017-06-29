@@ -6,7 +6,7 @@ ALTER TABLE `recap`.`item_t` ADD CONSTRAINT `BARCODE_OWN_INST_ID` UNIQUE (`BARCO
 
 ALTER TABLE `recap`.`job_t` ADD COLUMN `JOB_INSTANCE_ID` INT NULL AFTER `STATUS`;
 
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (12,'RequestInitialLoad','RequestInitialLoad',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (12,'RequestInitialLoad','Load the request initial data in SCSB',NULL,NULL,NULL,NULL,NULL);
 
 UPDATE `recap`.`job_t` SET `JOB_DESC`='Purge the exception status requests which are 365 days older. (Number of days is configurable)' WHERE `JOB_ID`='1';
 UPDATE `recap`.`job_t` SET `JOB_DESC`='Purge the email address attached to a request after 90 days of refile. In case of PHYREQ and after 60 days of EDD fulfillment. (Number of days is configurable)' WHERE `JOB_ID`='2';
@@ -19,6 +19,8 @@ UPDATE `recap`.`job_t` SET `JOB_DESC`='Purge all the accession requests which ar
 UPDATE `recap`.`job_t` SET `JOB_NAME`='PeriodicLASBarcodeReconciliation', `JOB_DESC`='Generate periodic LAS barcode reconciliation' WHERE `JOB_ID`='9';
 UPDATE `recap`.`job_t` SET `JOB_DESC`='Deletion of records in SCSB tables like bibliographic, holdings, item and request are captured and email notification is sent' WHERE `JOB_ID`='10';
 UPDATE `recap`.`job_t` SET `JOB_NAME`='PeriodicLASItemStatusReconciliation', `JOB_DESC`='Periodic LAS item status reconciliation' WHERE `JOB_ID`='11';
+
+DELETE FROM `recap`.`request_item_t` WHERE REQUEST_STATUS_ID = 9;
 
 -- Script for Release 0.9.27 ends here
 
