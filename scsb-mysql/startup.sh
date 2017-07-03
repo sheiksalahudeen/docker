@@ -43,9 +43,6 @@ else
     	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot mysql
 
         mysql -uroot < /opt/git/mysql/10_RECAP_ALTER_SCRIPTS.sql
-        mysql -uroot < /opt/git/mysql/27_DELETE_TRIGGERS.sql
-        mysql -uroot < /opt/git/mysql/25_JOB_PARAM_T.sql
-        mysql -uroot < /opt/git/mysql/26_JOB_PARAM_DATA_T.sql
 
 
     	        killall mysqld
