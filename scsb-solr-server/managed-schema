@@ -1109,7 +1109,7 @@
     <!--Holdings-->
     <field name="HoldingId" type="int" indexed="true" stored="true" multiValued="false"/>
     <field name="SummaryHoldings" type="text_general" indexed="true" stored="true" multiValued="false"/>
-    <field name="OwningInstHoldingsId" type="int" indexed="true" stored="true" multiValued="true"/>
+    <field name="OwningInstitutionHoldingsId" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="HoldingsOwningInstitution" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="HoldingsCreatedBy" type="text_general" indexed="true" stored="true" multiValued="false"/>
     <field name="HoldingsCreatedDate" type="date" indexed="true" stored="true" multiValued="false"/>
@@ -1120,6 +1120,7 @@
     <!--Item-->
     <field name="ItemBibId" type="int" indexed="true" stored="true" multiValued="true"/>
     <field name="ItemId" type="int" indexed="true" stored="true" multiValued="false"/>
+    <field name="OwningInstitutionItemId" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="Barcode" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="Availability_search" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="Availability_display" type="string" indexed="true" stored="true" multiValued="false"/>
