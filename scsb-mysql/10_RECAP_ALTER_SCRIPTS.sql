@@ -1,6 +1,38 @@
 USE `recap` ;
 
 -- Script for Release 0.9.28 starts here
+INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (2, 'IncrementalRecordsExportPul');
+INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (3, 'IncrementalRecordsExportCul');
+INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (4, 'IncrementalRecordsExportNypl');
+INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (5, 'DeletedRecordsExportPul');
+INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (6, 'DeletedRecordsExportCul');
+INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (7, 'DeletedRecordsExportNypl');
+
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (4, 'institutionCodes', 'CUL,NYPL', 2);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (5, 'requestingInstitutionCode', 'PUL', 2);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (6, 'fetchType', '1', 2);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (7, 'outputFormat', '0', 2);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (8, 'institutionCodes', 'PUL,NYPL', 3);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (9, 'requestingInstitutionCode', 'CUL', 3);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (10, 'fetchType', '1', 3);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (11, 'outputFormat', '0', 3);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (12, 'institutionCodes', 'PUL,CUL', 4);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (13, 'requestingInstitutionCode', 'NYPL', 4);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (14, 'fetchType', '1', 4);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (15, 'outputFormat', '1', 4);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (16, 'institutionCodes', 'CUL,NYPL', 5);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (17, 'requestingInstitutionCode', 'PUL', 5);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (18, 'fetchType', '2', 5);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (19, 'outputFormat', '2', 5);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (20, 'institutionCodes', 'PUL,NYPL', 6);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (21, 'requestingInstitutionCode', 'CUL', 6);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (22, 'fetchType', '2', 6);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (23, 'outputFormat', '2', 6);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (24, 'institutionCodes', 'PUL,CUL', 7);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (25, 'requestingInstitutionCode', 'NYPL', 7);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (26, 'fetchType', '2', 7);
+INSERT INTO `recap`.`job_param_data_t`(`JOB_PARAM_DATA_ID`, `PARAM_NAME`, `PARAM_VALUE`, `RECORD_NUM`) VALUES (27, 'outputFormat', '2', 7);
+
 ALTER TABLE MATCHING_BIB_T ADD STATUS VARCHAR(45);
 UPDATE `recap`.`customer_code_t` SET `DELIVERY_RESTRICTIONS`='NB,NC,ND,NE,NF,NG,NH,NI,NJ,NK,NM,NN,NO,NP,NR,NS,NT,NV,NX,NY,NZ,GO,SA,SM,SP,SR,IL,OA,OC,ON,OW', `PWD_DELIVERY_RESTRICTIONS`='NB,NC,ND,NE,NF,NG,NH,NI,NJ,NK,NM,NN,NO,NP,NR,NS,NT,NV,NX,NY,NZ,GO,SA,SM,SP,SR,OA,OC,ON,OW' WHERE `CUSTOMER_CODE_ID`='66';
 UPDATE `recap`.`customer_code_t` SET `DELIVERY_RESTRICTIONS`='NB,NC,NE,NK,NI,NX,IL,OA,OC,ON,OW', `PWD_DELIVERY_RESTRICTIONS`='NB,NC,NE,NK,NI,NX,OA,OC,ON,OW' WHERE `CUSTOMER_CODE_ID`='67';
@@ -31,6 +63,13 @@ UPDATE `recap`.`cross_partner_mapping_t` SET `DELIVERY_RESTRICTION_CROSS_PARTNER
 UPDATE `recap`.`cross_partner_mapping_t` SET `DELIVERY_RESTRICTION_CROSS_PARTNER_ID`='6' WHERE `CUSTOMER_CODE_ID`='25' and`DELIVERY_RESTRICTION_CROSS_PARTNER_ID`='2';
 
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (13,'SubmitCollection','Updates the bib, holding, item information for the given barcode in marc or scsb xml format',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (14,'IncrementalAndDeletedExportJobInSequence','Runs incremental and deleted records export jobs for each institution sequentially.',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (15,'IncrementalRecordsExportPul','Incremental Records Export for PUL',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (16,'IncrementalRecordsExportCul','Incremental Records Export for CUL',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (17,'IncrementalRecordsExportNypl','Incremental Records Export for NYPL',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (18,'DeletedRecordsExportPul','Deleted Records Export for PUL',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (19,'DeletedRecordsExportCul','Deleted Records Export for CUL',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (20,'DeletedRecordsExportNypl','Deleted Records Export for NYPL',NULL,NULL,NULL,NULL,NULL);
 
 -- Script for Release 0.9.28 ends here
 
