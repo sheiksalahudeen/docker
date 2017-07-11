@@ -1,6 +1,8 @@
 USE `recap` ;
 
 -- Script for Release 0.9.28 starts here
+UPDATE `recap`.`job_t` SET `JOB_NAME`='AccessionMatchingAndExportJobsInSequence', `JOB_DESC`='Runs all the accession process related jobs sequentially. Jobs that are included to run in sequential are, 1) Accession 2) Accession Report 3) Matching Algorithm 4) Incremental and Deleted Export' WHERE `JOB_ID`='7';
+
 INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (2, 'IncrementalRecordsExportPul');
 INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (3, 'IncrementalRecordsExportCul');
 INSERT INTO `recap`.`job_param_t`(`RECORD_NUM`,`JOB_NAME`) VALUES (4, 'IncrementalRecordsExportNypl');
