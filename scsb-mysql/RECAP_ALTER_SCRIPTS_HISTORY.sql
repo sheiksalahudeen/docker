@@ -22,6 +22,20 @@ UPDATE `recap`.`job_t` SET `JOB_NAME`='PeriodicLASItemStatusReconciliation', `JO
 
 DELETE FROM `recap`.`request_item_t` WHERE REQUEST_STATUS_ID = 9;
 
+-- -----------------------------------------------------
+-- Table `recap`.`ITEM_BARCODE_HISTORY_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ITEM_BARCODE_HISTORY_T` (
+  `HISTORY_ID`   INT         NOT NULL AUTO_INCREMENT,
+  `OWNING_INST` VARCHAR(45) NOT NULL,
+  `OWNING_INST_ITEM_ID` VARCHAR(45) NOT NULL,
+  `OLD_BARCODE` VARCHAR(45) NOT NULL,
+  `NEW_BARCODE` VARCHAR(45) NOT NULL,
+  `CREATED_DATE`       DATETIME    NOT NULL,
+  PRIMARY KEY (`HISTORY_ID`)
+)
+  ENGINE = InnoDB;
+
 -- Script for Release 0.9.27 ends here
 
 -- Script for Release 0.9.26 starts here
