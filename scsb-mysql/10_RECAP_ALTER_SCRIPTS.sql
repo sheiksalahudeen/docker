@@ -73,6 +73,19 @@ INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (19,'DeletedRecordsExportCul','Deleted Records Export for CUL',NULL,NULL,NULL,NULL,NULL);
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`,`JOB_INSTANCE_ID`) VALUES (20,'DeletedRecordsExportNypl','Deleted Records Export for NYPL',NULL,NULL,NULL,NULL,NULL);
 
+-- -----------------------------------------------------
+-- Table `recap`.`ITEM_BARCODE_HISTORY_T`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ITEM_BARCODE_HISTORY_T` (
+  `HISTORY_ID`   INT         NOT NULL AUTO_INCREMENT,
+  `OWNING_INST` VARCHAR(45) NOT NULL,
+  `OWNING_INST_ITEM_ID` VARCHAR(45) NOT NULL,
+  `OLD_BARCODE` VARCHAR(45) NOT NULL,
+  `NEW_BARCODE` VARCHAR(45) NOT NULL,
+  `CREATED_DATE`       DATETIME    NOT NULL,
+  PRIMARY KEY (`HISTORY_ID`)
+)
+  ENGINE = InnoDB;
 -- Script for Release 0.9.28 ends here
 
 
