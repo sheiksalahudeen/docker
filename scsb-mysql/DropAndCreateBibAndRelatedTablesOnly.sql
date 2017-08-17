@@ -203,6 +203,16 @@ CREATE TABLE IF NOT EXISTS `ITEM_BARCODE_HISTORY_T` (
 )
   ENGINE = InnoDB;
 
+DROP TABLE IF EXISTS `recap`.`OWNING_INST_ID_SEQ`;
+-- -----------------------------------------------------
+-- Table `recap`.`OWNING_INST_ID_SEQ`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `OWNING_INST_ID_SEQ` (
+  `ID` INTEGER AUTO_INCREMENT,
+   PRIMARY KEY (ID)
+)
+  ENGINE = InnoDB;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
