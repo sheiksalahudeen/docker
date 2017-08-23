@@ -1,5 +1,10 @@
 USE `recap` ;
 
+UPDATE `recap`.`customer_code_t` SET `CIRC_DESK_LOCATION`='CIRCglx' WHERE `CUSTOMER_CODE`='CF';
+UPDATE `recap`.`customer_code_t` SET `DESCRIPTION`='307 Butler (Delivery Services)' WHERE `CUSTOMER_CODE`='CI';
+UPDATE `recap`.`customer_code_t` SET `DESCRIPTION`='ReCAP Staff ILL' WHERE `CUSTOMER_CODE`='IC';
+UPDATE `recap`.`customer_code_t` SET `DELIVERY_RESTRICTIONS`='BT,BZ,CS,MP,MZ,OH,QP,RS', `PWD_DELIVERY_RESTRICTIONS`='BT,BZ,CS,MP,MZ,OH,QP,RS' WHERE `CUSTOMER_CODE`='OH';
+
 -- Script for Release 0.9.33 starts here
 /*Customer Code changes*/
 
