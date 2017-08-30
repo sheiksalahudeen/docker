@@ -110,7 +110,7 @@
             http://activemq.apache.org/configuring-transports.html
         -->
         <transportConnectors>
-            <!-- DOS protection, limit concurrent connections to 1000 and frame size to 800MB -->
+            <!-- DOS protection, limit concurrent connections to 1000 and frame size to 1200MB -->
             <transportConnector name="openwire"
                                 uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=1200000000"/>
             <transportConnector name="amqp"
