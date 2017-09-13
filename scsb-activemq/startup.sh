@@ -1,6 +1,11 @@
 #!/bin/bash
 
 echo "Start container."
+echo "Updating"
+
+    sed -i -e 's@memory_argument@'"$MEM_ARG"'@g' /opt/activemq/bin/env
+    sed -i -e 's@max_frame_size@'"$MAX_FRAME_SIZE"'@g' /opt/activemq/conf/activemq.xml
+
 
 if [ $DB_PERSISTANCE = "true" ]
 then
