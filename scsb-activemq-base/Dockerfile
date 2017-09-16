@@ -1,7 +1,7 @@
 FROM recapscsb/scsb-base:latest
 MAINTAINER HTC ReCAP Support "recap-support@htcindia.com"
 
-ENV ACTIVEMQ_VERSION 5.14.1
+ENV ACTIVEMQ_VERSION 5.15.0
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
 
 RUN cd /opt && \
