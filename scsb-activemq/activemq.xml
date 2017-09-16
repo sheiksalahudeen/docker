@@ -44,7 +44,7 @@
                 <policyEntries>
                     <policyEntry queue=">" >
                         <slowConsumerStrategy>
-                            <abortSlowAckConsumerStrategy ignoreNetworkConsumers="false" ignoreIdleConsumers="false" maxTimeSinceLastAck="60000" />
+                            <abortSlowAckConsumerStrategy maxTimeSinceLastAck="60000" />
                         </slowConsumerStrategy>
                     </policyEntry>
                     <policyEntry topic=">">
