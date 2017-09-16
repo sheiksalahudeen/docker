@@ -42,7 +42,11 @@
         <destinationPolicy>
             <policyMap>
                 <policyEntries>
-                    <policyEntry queue=">" optimizedDispatch="true" memoryLimit="1gb" producerFlowControl="false" />
+                    <policyEntry queue=">" >
+                        <slowConsumerStrategy>
+                            <abortSlowConsumerStrategy ignoreIdleConsumers="false" maxTimeSinceLastAck="60000" />
+                        </slowConsumerStrategy>
+                    </policyEntry>
                     <policyEntry topic=">">
                         <!-- The constantPendingMessageLimitStrategy is used to prevent
                              slow topic consumers to block producers and affect other consumers
