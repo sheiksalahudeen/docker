@@ -38,7 +38,7 @@ if [ -z "$ACTIVEMQ_OPTS" ] ; then
 fi
 
 # Uncomment to enable audit logging
-#ACTIVEMQ_OPTS="$ACTIVEMQ_OPTS -Dorg.apache.activemq.audit=true"
+ACTIVEMQ_OPTS="$ACTIVEMQ_OPTS -Dorg.apache.activemq.audit=true"
 
 # Set jvm jmx configuration
 # This enables jmx access over a configured jmx-tcp-port.
