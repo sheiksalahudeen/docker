@@ -12,4 +12,4 @@ UPDATE `recap`.`customer_code_t` SET `CIRC_DESK_LOCATION`='CIRCrecap' WHERE `CUS
 UPDATE `recap`.`customer_code_t` SET `DESCRIPTION`='401 Butler Library (Microforms Reading Room)' WHERE `CUSTOMER_CODE`='CF';
 -- Script for Release 1.0 ends here
 
-
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (21,'CheckAndNotifyPendingRequest','Check And Notify Pending Request',NULL,NULL,NULL,NULL);
