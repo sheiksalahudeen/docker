@@ -18,6 +18,7 @@ UPDATE `recap`.`job_t` SET `JOB_DESC`='The job updates the bib, holdings and ite
 UPDATE `recap`.`job_t` SET `JOB_DESC`='The job runs the incremental and deleted records export job for each institution in sequence.' WHERE `JOB_NAME`='IncrementalAndDeletedExportJobInSequence';
 UPDATE `recap`.`job_t` SET `JOB_NAME`='PurgeCompletedAccessions' WHERE `JOB_NAME`='PurgeAccessionRequests';
 
+INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (21,'CheckAndNotifyPendingRequest','Check And Notify Pending Request',NULL,NULL,NULL,NULL);
+
 -- Script for Release 1.1 ends here
 
-INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (21,'CheckAndNotifyPendingRequest','Check And Notify Pending Request',NULL,NULL,NULL,NULL);
