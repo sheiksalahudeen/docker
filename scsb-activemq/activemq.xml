@@ -42,9 +42,9 @@
         <destinationPolicy>
             <policyMap>
                 <policyEntries>
-                    <policyEntry queue=">" >
+                    <policyEntry queue="lasOutgoingQ" >
                         <slowConsumerStrategy>
-                            <abortSlowAckConsumerStrategy maxTimeSinceLastAck="60000" />
+                            <abortSlowAckConsumerStrategy ignoreNetworkConsumers="false" ignoreIdleConsumers="false" maxTimeSinceLastAck="1800000" />
                         </slowConsumerStrategy>
                     </policyEntry>
                     <policyEntry topic=">">
