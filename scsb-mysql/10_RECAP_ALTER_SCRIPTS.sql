@@ -1,6 +1,8 @@
 USE `recap` ;
 
--- Script for Release 1.1 starts here
+-- Script for Release 1.0.1 starts here
+
+ALTER TABLE `recap`.`request_item_t` MODIFY EMAIL_ID VARCHAR(100);
 
 UPDATE `recap`.`job_t` SET `JOB_DESC`='The job purges the requests that end up with \'Exception\' status and are 365 days old. The number of days is configurable.' WHERE `JOB_NAME`='PurgeExceptionRequests';
 UPDATE `recap`.`job_t` SET `JOB_DESC`='The job purges the patron email addresses entered in SCSB as part of requests. In case of physical requests, it will be purged 90 days after refile and in case of EDD, 60 days from the date of fulfillment. The number of days are configurable.' WHERE `JOB_NAME`='PurgeEmailAddress';
@@ -20,5 +22,5 @@ UPDATE `recap`.`job_t` SET `JOB_NAME`='PurgeCompletedAccessions' WHERE `JOB_NAME
 
 INSERT INTO `recap`.`job_t` (`JOB_ID`,`JOB_NAME`,`JOB_DESC`,`LAST_EXECUTED_TIME`,`NEXT_RUN_TIME`,`CRON_EXP`,`STATUS`) VALUES (21,'CheckAndNotifyPendingRequest','Check And Notify Pending Request',NULL,NULL,NULL,NULL);
 
--- Script for Release 1.1 ends here
+-- Script for Release 1.0.1 ends here
 
