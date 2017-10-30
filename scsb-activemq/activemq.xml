@@ -120,7 +120,7 @@
             <transportConnector name="amqp"
                                 uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireFormat.maxFrameSize=max_frame_size"/>
             <transportConnector name="stomp"
-                                uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireFormat.maxFrameSize=max_frame_size"/>
+                                uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireFormat.maxFrameSize=max_frame_size&amp;transport.hbGracePeriodMultiplier=1.5"/>
             <transportConnector name="mqtt"
                                 uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;wireFormat.maxFrameSize=max_frame_size"/>
             <transportConnector name="ws"
